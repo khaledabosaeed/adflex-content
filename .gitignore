@@ -1,0 +1,13 @@
+# rendered media stays out of git (put finals in the shared Drive)
+renders/
+*.mp4
+*.mov
+*.webm
+*.wav
+*.mp3
+*.zip
+# local
+.DS_Store
+__pycache__/
+node_modules/
+.env
