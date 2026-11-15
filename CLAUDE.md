@@ -5,7 +5,7 @@ You're helping the AdFlex content team make social reels, ads and website hero v
 ## Start here
 1. Read [README.md](README.md) for the index of every video and its status.
 2. Before touching a video, read its `videos/<type>/<slug>/brief.md`, then `production.md` and `assets.md`.
-3. Before using a character, read `characters/<name>.md`. Before designing anything, read `brand/brand.md`.
+3. Before using a character, read `characters/<name>.md`. Before designing anything, read `brand/brand.md`. Before planning motion, check `motion-styles/README.md`.
 4. Check `lessons/` before choosing a model or writing a prompt.
 
 ## Language
@@ -15,7 +15,7 @@ You're helping the AdFlex content team make social reels, ads and website hero v
 ## Hard rules
 - **Credits cost money.** Quote the credit cost and get a yes before every paid generation. Reading, searching and editing existing footage cost nothing.
 - **Never publish or schedule a social post** unless a person explicitly asks for it in this session. Drafts are fine. Never claim a post went live when it's a draft.
-- Take a reference's **idea and structure**, never its story or characters.
+- Take a reference's **idea, structure and motion style**, never its story, characters, footage, music or logos.
 - **AdFlex comes first** in every spoken line, caption and end card. Claude, ChatGPT and MCP appear as small, equal-weight integrations.
 - End cards say AdFlex works with the AI you already use. Don't use «أي موديل» or «أي ذكاء اصطناعي».
 - Use an ad CTA, not comment-bait such as "comment X and I'll send the link".
@@ -32,8 +32,8 @@ Each video's `brief.md` says which account it uses. Public versions should be re
 
 ## Workflow for a new video
 1. Copy `templates/new-video/` to `videos/<type>/<slug>/`, where `<type>` is `ad`, `social` or `hero` (the same value as the `type` field in `brief.md`), and fill in `brief.md`. Fill in the goal, audience and channel first. Ask the team if you don't know them.
-2. If there's a reference, add it to `references/README.md` with a short breakdown of why it works.
-3. Write the script and shot list in `production.md`. Get approval before generating.
+2. If there's a reference, add it to `references/README.md` with a short breakdown of why it works. If it has a motion style worth reusing, save it as `motion-styles/<slug>.md` from `templates/motion-style.md` and add it to the index.
+3. Pick the motion styles from `motion-styles/` and list them in `brief.md` (`motion_styles`). Write the script and shot list in `production.md`, using the styles' prompt wording and edit recipes. Get approval before generating.
 4. Generate stills first, review them, then animate. Add **every** asset's full URL to `assets.md` as you go.
 5. Save editing scripts in `videos/<type>/<slug>/build/` and reusable helpers in `tools/`. Render outputs go in `renders/`, which git ignores.
 6. Record each version and the feedback that led to it in `production.md`, and update the status in `brief.md` and `README.md`.

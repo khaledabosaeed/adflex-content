@@ -8,6 +8,7 @@ CLAUDE.md / AGENTS.md   instructions for AI assistants
 brand/                  colours, logo, fonts, tone, end-card rules
 characters/             recurring characters: look, reference links, voice, prompts
 references/             viral videos we adapted, with the breakdown
+motion-styles/          reusable motion styles copied from references, by type
 videos/
   ad/                   paid ads: presenter/narrator demos AdFlex, ad CTA
   social/               no-dialogue viral comedy reels ending on an AdFlex card
@@ -18,6 +19,7 @@ videos/
     assets.md           full links to every image, clip and audio file
     build/              editing scripts for this video
 templates/new-video/    copy this to start a video
+templates/motion-style.md  copy this to add a motion style
 lessons/                model and editing lessons
 tools/                  reusable scripts (Arabic text renderer, etc.)
 ```

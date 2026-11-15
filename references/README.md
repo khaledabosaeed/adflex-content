@@ -1,6 +1,6 @@
 # References
 
-These are the viral videos and ads we adapted. Reuse the **idea and structure**, never the story. Links die, so the breakdown is the part that matters.
+These are the viral videos and ads we adapted. Reuse the **idea, structure and motion style**, never the story. Links die, so the breakdown is the part that matters.
 
 | Reference | Link | Used in | What we took |
 |---|---|---|---|
@@ -19,3 +19,5 @@ Add a row, and if it's worth it, a file `references/<slug>.md` with:
 - a shot-by-shot breakdown
 - why it works
 - what we'll keep and what we'll change
+
+If the reference has a motion style worth reusing (a camera move, transition, cut rhythm, graphics animation or grade), also save it as a file in [`motion-styles/`](../motion-styles/README.md).
