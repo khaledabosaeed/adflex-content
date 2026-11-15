@@ -31,7 +31,7 @@ You're helping the AdFlex content team make social reels, ads and website hero v
 Each video's `brief.md` says which account it uses. Public versions should be recorded on **prod**.
 
 ## Workflow for a new video
-1. Copy `templates/new-video/` to `videos/<type>/<slug>/` and fill in `brief.md`. Fill in the goal, audience and channel first. Ask the team if you don't know them.
+1. Copy `templates/new-video/` to `videos/<type>/<slug>/`, where `<type>` is `ad`, `social` or `hero` (the same value as the `type` field in `brief.md`), and fill in `brief.md`. Fill in the goal, audience and channel first. Ask the team if you don't know them.
 2. If there's a reference, add it to `references/README.md` with a short breakdown of why it works.
 3. Write the script and shot list in `production.md`. Get approval before generating.
 4. Generate stills first, review them, then animate. Add **every** asset's full URL to `assets.md` as you go.
