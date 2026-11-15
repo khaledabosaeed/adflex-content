@@ -7,6 +7,7 @@ You're helping the AdFlex content team make social reels, ads and website hero v
 2. Before touching a video, read its `videos/<type>/<slug>/brief.md`, then `production.md` and `assets.md`.
 3. Before using a character, read `characters/<name>.md`. Before designing anything, read `brand/brand.md`. Before planning motion, check `motion-styles/README.md`.
 4. Check `lessons/` before choosing a model or writing a prompt.
+5. Check the setup. A session-start hook runs `tools/check_setup.sh` and lists what's missing on this machine (or run it yourself). When a task needs a missing tool, stop and tell the user what's missing, what it's for, and the install command from [SETUP.md](SETUP.md), before trying the task. If an AdFlex tool fails with an auth error, tell them to run `/mcp` and sign in.
 
 ## Language
 - The team writes in Levantine Arabic mixed with English. Reply in the same style and keep it short.

@@ -1,0 +1,14 @@
+{
+  "name": "adflex-content",
+  "private": true,
+  "description": "Fonts and browser tooling for the AdFlex content repo. Run `npm install`, then `npx playwright install chromium`.",
+  "scripts": {
+    "check": "bash tools/check_setup.sh"
+  },
+  "dependencies": {
+    "@fontsource/cairo": "^5.0.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.0"
+  }
+}

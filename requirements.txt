@@ -1,0 +1,7 @@
+# Python packages for editing scripts. Install with: pip install -r requirements.txt
+# Pillow must be built with raqm for Arabic text: install the system libraqm first (see SETUP.md).
+pillow
+numpy
+librosa
+# Optional: checking pronunciation of generated takes
+# faster-whisper

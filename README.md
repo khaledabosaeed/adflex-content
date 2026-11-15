@@ -56,6 +56,9 @@ Status as of 2026-11-15.
 - **Rendered videos** (`*.mp4`, `*.mov`) are git-ignored. Put finals in the shared Drive and link them in `brief.md`.
 - **Lost build scripts:** the original editing scripts lived in temporary sessions and are gone. `production.md` describes how each cut was built.
 
+## Setup
+See [SETUP.md](SETUP.md) for what to install, and run `bash tools/check_setup.sh` to see what's missing on your machine.
+
 ## Getting started
 ```bash
 git clone <repo-url> && cd adflex-content
