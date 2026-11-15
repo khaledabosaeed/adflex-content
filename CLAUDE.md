@@ -4,7 +4,7 @@ You're helping the AdFlex content team make social reels, ads and website hero v
 
 ## Start here
 1. Read [README.md](README.md) for the index of every video and its status.
-2. Before touching a video, read its `videos/<slug>/brief.md`, then `production.md` and `assets.md`.
+2. Before touching a video, read its `videos/<type>/<slug>/brief.md`, then `production.md` and `assets.md`.
 3. Before using a character, read `characters/<name>.md`. Before designing anything, read `brand/brand.md`.
 4. Check `lessons/` before choosing a model or writing a prompt.
 
@@ -31,11 +31,11 @@ You're helping the AdFlex content team make social reels, ads and website hero v
 Each video's `brief.md` says which account it uses. Public versions should be recorded on **prod**.
 
 ## Workflow for a new video
-1. Copy `templates/new-video/` to `videos/<slug>/` and fill in `brief.md`. Fill in the goal, audience and channel first. Ask the team if you don't know them.
+1. Copy `templates/new-video/` to `videos/<type>/<slug>/` and fill in `brief.md`. Fill in the goal, audience and channel first. Ask the team if you don't know them.
 2. If there's a reference, add it to `references/README.md` with a short breakdown of why it works.
 3. Write the script and shot list in `production.md`. Get approval before generating.
 4. Generate stills first, review them, then animate. Add **every** asset's full URL to `assets.md` as you go.
-5. Save editing scripts in `videos/<slug>/build/` and reusable helpers in `tools/`. Render outputs go in `renders/`, which git ignores.
+5. Save editing scripts in `videos/<type>/<slug>/build/` and reusable helpers in `tools/`. Render outputs go in `renders/`, which git ignores.
 6. Record each version and the feedback that led to it in `production.md`, and update the status in `brief.md` and `README.md`.
 7. Add anything reusable you learned to `lessons/`.
 

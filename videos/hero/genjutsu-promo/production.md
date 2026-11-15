@@ -21,7 +21,7 @@
 | 12.2–16.9s | One-click object swap | Coffee cup → cat mug (swap), light-sweep reveal |
 | 16.9–20s | End card | Logo, "Swap anyone. Keep everything.", "Try it on adflex.ai" |
 
-The inputs reuse footage from other videos in this project: Zaatar ([zaatar-cat-reel.md](../zaatar-cat-reel/brief.md)) and the ATV caveman ([mammoth-wash-reel.md](../mammoth-wash-reel/brief.md)).
+The inputs reuse footage from other videos in this project: Zaatar ([zaatar-cat-reel.md](../../ad/zaatar-cat-reel/brief.md)) and the ATV caveman ([mammoth-wash-reel.md](../../social/mammoth-wash-reel/brief.md)).
 
 
 ## Notes

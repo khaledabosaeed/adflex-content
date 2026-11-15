@@ -7,4 +7,4 @@ Reusable scripts shared across videos go here. The originals were lost with the 
 - `beats.py`: get the beat grid of a music track with librosa.
 - `end_card.py`: the AdFlex end card ("works with the AI you use").
 
-Per-video scripts belong in `videos/<slug>/build/`.
+Per-video scripts belong in `videos/<type>/<slug>/build/`.
