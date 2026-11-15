@@ -7,7 +7,7 @@ The working repo for AdFlex's social reels, ads and website hero videos: ideas, 
 CLAUDE.md / AGENTS.md   instructions for AI assistants
 brand/                  colours, logo, fonts, tone, end-card rules
 characters/             recurring characters: look, reference links, voice, prompts
-references/             viral videos we adapted, with the breakdown
+references/<type>/      viral videos we adapted and where to search, by type
 motion-styles/          reusable motion styles copied from references, by type
 videos/
   ad/                   paid ads: presenter/narrator demos AdFlex, ad CTA

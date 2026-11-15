@@ -26,7 +26,7 @@ published: false
 One or two sentences: what happens, and the message.
 
 ## Reference
-Link plus what we take from it (structure, pacing, hook). Also add it to `references/README.md`.
+Link plus what we take from it (structure, pacing, hook). Also add it to `references/<type>/README.md`.
 
 ## Motion styles
 Which styles from `motion-styles/` this video uses, and any new style copied from the reference.

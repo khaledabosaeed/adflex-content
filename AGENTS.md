@@ -32,7 +32,7 @@ Each video's `brief.md` says which account it uses. Public versions should be re
 
 ## Workflow for a new video
 1. Copy `templates/new-video/` to `videos/<type>/<slug>/`, where `<type>` is `ad`, `social` or `hero` (the same value as the `type` field in `brief.md`), and fill in `brief.md`. Fill in the goal, audience and channel first. Ask the team if you don't know them.
-2. If there's a reference, add it to `references/README.md` with a short breakdown of why it works. If it has a motion style worth reusing, save it as `motion-styles/<slug>.md` from `templates/motion-style.md` and add it to the index.
+2. If there's a reference, add it to `references/<type>/README.md` with a short breakdown of why it works. If you need to find one, use the "Where to search" list in that file. If it has a motion style worth reusing, save it as `motion-styles/<slug>.md` from `templates/motion-style.md` and add it to the index.
 3. Pick the motion styles from `motion-styles/` and list them in `brief.md` (`motion_styles`). Write the script and shot list in `production.md`, using the styles' prompt wording and edit recipes. Get approval before generating.
 4. Generate stills first, review them, then animate. Add **every** asset's full URL to `assets.md` as you go.
 5. Save editing scripts in `videos/<type>/<slug>/build/` and reusable helpers in `tools/`. Render outputs go in `renders/`, which git ignores.
