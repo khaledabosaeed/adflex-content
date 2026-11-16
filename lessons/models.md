@@ -22,6 +22,11 @@
 ## Audio
 - **ElevenLabs Music v2.5:** 25–80 cr per track. Ask for an instant start, a clean final stab at a given second, and the BPM. Then check where it really goes silent.
 - **SFX:** about 6 cr each.
+  - Check every file's peak before using it (`volumedetect`). A 0.5 s "UI click" came back silent (−60 dB peak), and the 0.6 s "glitch" came back very quiet.
+  - Short UI clicks are easy to synthesize for free with ffmpeg (a 1.7 kHz sine plus high-passed noise, 60 ms fade).
+- **Music composition plans don't hold their section times.** A 6/8/6 s plan (intro/drop/payoff) came back with the drop at 8.0 s and silence after 16 s.
+  - Draw the waveform (`showwavespic`) to find the real drop and end.
+  - Then re-cut on bar lines in the edit (at 120 BPM a bar is 2 s) instead of paying for a new track.
 - **Voiceover:** the Levantine voice "Laloosh" was used in the UGC reel.
 
 ## STT is a check, not proof

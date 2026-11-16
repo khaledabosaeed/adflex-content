@@ -5,7 +5,7 @@ You're helping the AdFlex content team make social reels, ads and website hero v
 ## Start here
 1. Read [README.md](README.md) for the index of every video and its status.
 2. Before touching a video, read its `videos/<type>/<slug>/brief.md`, then `production.md` and `assets.md`.
-3. Before using a character, read `characters/<name>.md`. Before designing anything, read `brand/brand.md`. Before planning motion, check `motion-styles/README.md`.
+3. Before using a character, read `characters/<name>.md`. Before designing anything, read `brand/brand.md`. Before planning motion, check `motion-styles/README.md`, including its house motion rules. For Remotion work use the `remotion-best-practices` skill, and audit animation code with the `12-principles-of-animation` skill (both in `.claude/skills/`).
 4. Check `lessons/` before choosing a model or writing a prompt.
 5. Check the setup. A session-start hook runs `tools/check_setup.sh` and lists what's missing on this machine (or run it yourself). When a task needs a missing tool, stop and tell the user what's missing, what it's for, and the install command from [SETUP.md](SETUP.md), before trying the task. If an AdFlex tool fails with an auth error, tell them to run `/mcp` and sign in.
 

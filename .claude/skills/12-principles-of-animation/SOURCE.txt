@@ -1,0 +1,1 @@
+Source: github.com/raphaelsalaja/skill @ 2e2177d^ (archive/original-article-skills, MIT). Removed upstream on 2026-10-29; pinned copy.

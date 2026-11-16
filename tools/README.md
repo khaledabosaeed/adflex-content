@@ -7,4 +7,8 @@ Reusable scripts shared across videos go here. The originals were lost with the 
 - `beats.py`: get the beat grid of a music track with librosa.
 - `end_card.py`: the AdFlex end card ("works with the AI you use").
 
+Ready:
+
+- [`talking-head-reel/`](talking-head-reel/README.md): talking-head 9:16 reel with 3D icon pops in a safe box (Remotion + three.js), word-synced Arabic captions (faster-whisper + silence snapping), a virtual camera, synthesized SFX and motion blur. Everything runs on the NVIDIA GPU.
+
 Per-video scripts belong in `videos/<type>/<slug>/build/`.

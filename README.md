@@ -49,6 +49,7 @@ Status as of 2026-11-15.
 | [bloom-hero](videos/hero/bloom-hero/brief.md) | "Bloom · بلوم" coffee-cart GPT Image 2.6 hero | 16:9 + social | v4 final |
 | [diner-hero](videos/hero/diner-hero/brief.md) | "Al's Diner" hero | 16:9 + social | Superseded by Bloom |
 | [genjutsu-promo](videos/hero/genjutsu-promo/brief.md) | Genjutsu swap tool promo | 20 s, 16:9 | Final |
+| [workflow-hero](videos/hero/workflow-hero/brief.md) | "Workflow × ALFA" hero: one sentence to ALFA builds and runs a real workflow | 20 s, 16:9, loop with music + SFX | v6 (music + sound effects) rendered, awaiting review |
 
 **Nothing has been published.** Some posts exist as drafts only.
 

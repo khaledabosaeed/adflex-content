@@ -5,6 +5,8 @@
 - Big sparkle gradient #C95AC5 → #55AAFF. Small sparkle #F83AAE → #D453C2.
 - The only file available is a 133×36 PNG from the brand kit: https://cdn-dev.adflex.ai/business/6acb3fb640ba55f116584c78/logos/cea297f5-ba03-4f5f-a856-bf5332d6c36e.png
 - It was rebuilt at 1338×368 for end cards (letters upscaled and snapped to the flat colours, sparkles redrawn as vector superellipse stars).
+- **Best local file: [adflex-logo-1820.png](adflex-logo-1820.png)** (1820×524, transparent, for dark or light backgrounds). Made from the FE's `public/images/authLogo.webp` (456×238, the wordmark + "Adaptive Flexibility"): wordmark cropped, 4× Lanczos, alpha re-thresholded for crisp edges. Use it at up to ~700 px wide.
+- Not the brand logo: the FE's `public/landing-logo.png` (purple "Ad", white "Flex") and `landing-logo-light-mode.png` (purple "Ad", black "Flex"). Don't use them in videos.
 - **TODO:** get a real SVG or high-res logo from AdFlex before running paid ads.
 
 ## Colours
