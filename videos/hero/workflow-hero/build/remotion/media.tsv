@@ -1,0 +1,36 @@
+# Media the Remotion build needs but git ignores. Fetch with: bash tools/fetch_media.sh videos/hero/workflow-hero/build/remotion/media.tsv
+# path (relative to this folder)	url	sha256
+public/alfa.mp4	https://cdn-dev.adflex.ai/uploaded-images/6acb3fb640ba55f116584c78/69eca7882576b44126acaece/6afb44cc539c3a84eb10febf.mp4	96579ad918f4a767d499dfddba2f26646c80a8667f08923e81a4d0688fe21023
+public/runsel.mp4	https://cdn-dev.adflex.ai/uploaded-images/6acb3fb640ba55f116584c78/69eca7882576b44126acaece/6afb44cc539c3a84eb10fece.mp4	d4f802b13c0391f48dedc18d32bec7ff08fd703f073704e3b4503fabc9e3e3b0
+public/girl.mp4	https://cdn-dev.adflex.ai/uploaded-images/6acb3fb640ba55f116584c78/69eca7882576b44126acaece/6afb44cc539c3a84eb10fedd.mp4	a2d99d62af7b612776e1bd281b68465655e1c8431426da06c0447ac235905487
+public/story.mp4	https://cdn-dev.adflex.ai/uploaded-images/6acb3fb640ba55f116584c78/69eca7882576b44126acaece/6afcb3bbd6d610203f30ca8f.mp4	d8a3b03620da35b10a1faae180a0b34191a725c545fdea71652158357fe47425
+public/audio/music.mp3	https://cdn-dev.adflex.ai/ai-music/6acb3fb640ba55f116584c78/generated-audio/fc374f3e-05e0-4b07-92d7-970274a55f57.mp3	7f424019a733d5d036a7ac22c6d09b20bcacef02041284806d7a8242b6b108bf
+public/audio/whoosh.mp3	https://cdn-dev.adflex.ai/ai-sound-effects/6acb3fb640ba55f116584c78/generated-audio/f182f328-25ec-4215-a87a-a33131ae145b.mp3	16e68cc31469f35f22f9d62d3b98cf86823a1bfb4a48f41d5db3e5761da7aef2
+public/audio/glitch.mp3	https://cdn-dev.adflex.ai/ai-sound-effects/6acb3fb640ba55f116584c78/generated-audio/1dce844a-73ee-4072-8d04-13aa078441ac.mp3	3426761892e1495bdb7dde29ba57a8b39b97fe1fb0ae8178f4886045c8585c1b
+public/audio/riser.mp3	https://cdn-dev.adflex.ai/ai-sound-effects/6acb3fb640ba55f116584c78/generated-audio/30d42380-b8de-49c6-bf0d-e412bfee4ee1.mp3	1d363606c4c08d0a68221c8638ec539b89e1fd404180614948f4039e63d3b363
+public/audio/scan.mp3	https://cdn-dev.adflex.ai/ai-sound-effects/6acb3fb640ba55f116584c78/generated-audio/3c2f51f2-dfa4-4dec-85e1-a24fd0de325a.mp3	84dda0da09f69b5531f8d2cc3bf60b4f4ea63ffce1a11373acc823e91b46affe
+public/audio/pop.mp3	https://cdn-dev.adflex.ai/ai-sound-effects/6acb3fb640ba55f116584c78/generated-audio/b811b525-20de-4ddc-95a5-4a0c6a9bfac2.mp3	1928bd67ac8105a15f8f0df098999fbd3d78e4f03609f780317c144089505cc5
+public/audio/impact.mp3	https://cdn-dev.adflex.ai/ai-sound-effects/6acb3fb640ba55f116584c78/generated-audio/8bb1643d-a73a-42c2-a695-465eac3b440d.mp3	08a6864beb3c3e7afeebea065da0f41e8afa8cffe7ad0b708436116a2c54bebe
+public/alfa-reply.mp4	https://cdn-dev.adflex.ai/uploaded-images/6acb3fb640ba55f116584c78/69eca7882576b44126acaece/6afc4818c816325700ff9a00.mp4	8a52eff631312dba19be0eaae5f8ef38e51537db84bfc359aa8bfd7504d71395
+public/candle-story.mp4	https://cdn-dev.adflex.ai/uploaded-images/6acb3fb640ba55f116584c78/69eca7882576b44126acaece/6afc5d57c816325700ffe0bf.mp4	94fc7d7ef58e61f223b565c6b1eb894515d98e3bf954ad24604f990c485ba4bd
+public/serum.jpg	https://cdn-dev.adflex.ai/ai-content/images/a3767bff-6c36-482d-a86d-4c0d88e7f33a.jpg	7902eb8d6146ffcbae19d452b462c1dbee5b8da139a0c8bb1b35891e2df488e8
+public/ad1.jpg	https://cdn-dev.adflex.ai/workflow/6acb3fb640ba55f116584c78/outputs/images/499fb9e0-3039-4c74-9295-6cd719c72f1f.jpg	973885b99c64c04bb5e7ef287b2855a0d9558d467740c024eb04ddfa032f0e22
+public/ad2.jpg	https://cdn-dev.adflex.ai/workflow/6acb3fb640ba55f116584c78/outputs/images/3fec9c5e-3a70-4cfd-8bd0-bef835c47951.jpg	4889514326ccf37914fcd67574ee564ebfb707425bbc4c2e36be90d5c7985884
+public/ad3.jpg	https://cdn-dev.adflex.ai/workflow/6acb3fb640ba55f116584c78/outputs/images/5041e4ec-62e0-4fae-aafc-26ba406dbebd.jpg	487feb02ff4a7a80346b66d293f2596933aa4e81b1670555a9e05eeeecfc5696
+public/candle.jpg	https://cdn-dev.adflex.ai/ai-content/images/382c7f34-6a3f-41f7-a863-c3194d07a78d.jpg	77ee04ab9231aa22d37fc673e02a7bce11ed1548369a97fdee13e422790e7fb0
+public/candle-ad1.jpg	https://cdn-dev.adflex.ai/ai-content/images/4e019c8c-d28c-4ba1-b123-de381d9875c2.jpg	4cd30d09d6f44a70f6376128474189da6ac3f6632305f47a410b1e716c04dbb9
+public/candle-ad2.jpg	https://cdn-dev.adflex.ai/ai-content/images/a7651ad7-4e06-45be-a111-f886973c78a4.jpg	c7ba02eac8b085cf4e9b055d51dd70646e7805357b68674be728ce88e974e4b3
+public/candle-ad3.jpg	https://cdn-dev.adflex.ai/ai-content/images/e9b91cc2-a636-40c1-9ee6-cfa29300ecbd.jpg	156f32315429cb03b248382b73201043ed9061ff6345f4ae268f33047b9dee8b
+public/alfa-plan.mp4	https://cdn-dev.adflex.ai/uploaded-images/6acb3fb640ba55f116584c78/69eca7882576b44126acaece/6afc7badd6d610203f2ffde7.mp4	c1eb1eadfe0aeddb616d6804ed29bcaa528545244271b687bfa893dbc107f33e
+public/canvas-empty.mp4	https://cdn-dev.adflex.ai/uploaded-images/6acb3fb640ba55f116584c78/69eca7882576b44126acaece/6afc7badd6d610203f2ffdf6.mp4	368d4f498256d2651b6d0c96e11b2691b556b36f7cde16dfc9ac83d50e4858d7
+public/lama-candle.mp4	https://cdn-dev.adflex.ai/uploaded-images/6acb3fb640ba55f116584c78/69eca7882576b44126acaece/6afc812fd6d610203f300f2a.mp4	a3adcf099ce7cf514ae46d17558f9c71f6d43a02e83a3217abd122b8f70bdb8c
+public/alfa-edit.mp4	https://cdn-dev.adflex.ai/uploaded-images/6acb3fb640ba55f116584c78/69eca7882576b44126acaece/6afc8dbfd6d610203f304abb.mp4	8a963af2a6e96a6ae07693b8be2c47e8a883233209e47192a83738fe7028b146
+public/winter-ad1.jpg	https://cdn-dev.adflex.ai/ai-content/images/e7aa9ab9-4f83-4b02-94da-4769ca0bcec7.jpg	83e012c074078b10fe23b755f2b3728a030fcb5b757c42d05cf3eac3ed68b556
+public/winter-ad2.jpg	https://cdn-dev.adflex.ai/ai-content/images/78e4a974-c2b8-4a7d-b557-d44f3e07de0a.jpg	518c7947e7d92b5a86705896a701ca1e21c9379809e1149eb41282152b9c291f
+public/winter-ad3.jpg	https://cdn-dev.adflex.ai/ai-content/images/54a55b9f-e5a1-4ff1-b7d2-cd5db4c701d0.jpg	2009b670cd9e06edab2156765e8034bdb4ff6a62b9d4169f5631ca773a8ecedb
+public/lama-serum.mp4	https://cdn-dev.adflex.ai/uploaded-images/6acb3fb640ba55f116584c78/69eca7882576b44126acaece/6afca8c8d6d610203f30a8fd.mp4	f08d64b25e105ecba8170585c428ae1398b53e9bcccedca7d2148d9505a8c78f
+public/audio/music2.mp3	https://cdn-dev.adflex.ai/ai-music/6acb3fb640ba55f116584c78/generated-audio/ac83c5c9-d1cb-4efb-adcf-195c7e0a2233.mp3	668c332e1dd6a873b4ca401189d882ec7d5102c552d1e7f4d31730e99555af15
+public/audio/sfx-whip.mp3	https://cdn-dev.adflex.ai/ai-sound-effects/6acb3fb640ba55f116584c78/generated-audio/4db12d21-3c6b-4f55-ad93-0768f76a4f2f.mp3	049c148a9067d92d8a5e83687265569f8449e7cda8271c8e5413b9b9de227667
+public/audio/sfx-lift.mp3	https://cdn-dev.adflex.ai/ai-sound-effects/6acb3fb640ba55f116584c78/generated-audio/eb702248-0b90-4963-b36b-02647879840f.mp3	cfc9dd51b8236c789fb43b739b8d52b077972d8a4c92acbfdc77167069551407
+public/audio/sfx-morph.mp3	https://cdn-dev.adflex.ai/ai-sound-effects/6acb3fb640ba55f116584c78/generated-audio/c53e834a-2965-48c4-bf4f-c48100bb29b9.mp3	908e866c027e02d626a6b5069be38d045feb5fcc02ce63b28de646a6bd97b266
+public/audio/sfx-logo.mp3	https://cdn-dev.adflex.ai/ai-sound-effects/6acb3fb640ba55f116584c78/generated-audio/552cdd69-d80c-4a8d-b260-45b105f6c56b.mp3	a7d0256355255be0a5792a4b8bd5008221f7125f1fb3f4d8b492047bbc17a8f8

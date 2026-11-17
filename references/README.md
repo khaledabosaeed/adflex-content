@@ -6,7 +6,7 @@ The viral videos and ads we adapt, split by video type like `videos/`. Each type
 |---|---|---|
 | `ad` | [ad/README.md](ad/README.md) | 4 |
 | `social` | [social/README.md](social/README.md) | 3 |
-| `hero` | [hero/README.md](hero/README.md) | 3 |
+| `hero` | [hero/README.md](hero/README.md) | 48 |
 
 ## Rules
 - Reuse the **idea, structure and motion style**, never the story, characters, footage, music or logos.
@@ -30,4 +30,4 @@ Each type file has a **Reference libraries** table of curated sites (checked 202
    - a shot-by-shot breakdown
    - why it works
    - what we'll keep and what we'll change
-3. If it has a motion style worth reusing, save it in [`motion-styles/`](../motion-styles/README.md).
+3. If it has a motion style worth reusing, save it in [`motion-styles/`](../motion-styles/README.md). Transitions go in [`transitions/`](../transitions/README.md).

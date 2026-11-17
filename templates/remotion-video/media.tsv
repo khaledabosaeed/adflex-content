@@ -1,0 +1,2 @@
+# Media this build needs but git ignores (clips, music, SFX). Fetch with: bash tools/fetch_media.sh <this file>
+# path (relative to this folder)	url	sha256   (get the hash with: sha256sum public/<file>)

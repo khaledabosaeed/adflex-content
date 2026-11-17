@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Easing, interpolate, OffthreadVideo, random, Sequence, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Easing, Freeze, Img, interpolate, interpolateColors, OffthreadVideo, random, Sequence, staticFile, useCurrentFrame} from 'remotion';
 import {loadFont} from '@remotion/fonts';
 
 loadFont({family: 'Archivo Black', url: staticFile('ArchivoBlack-Regular.ttf')});
@@ -292,6 +292,13 @@ export const Clip: React.FC<{src: string; from?: number; dur?: number; trimBefor
   </Sequence>
 );
 
+/** One frame of a clip, held. Frames come from the uploaded clips (media.tsv) instead of image files in git. */
+export const Still: React.FC<{src: string; frame: number; style?: React.CSSProperties}> = ({src, frame, style}) => (
+  <Freeze frame={frame}>
+    <OffthreadVideo src={staticFile(src)} muted style={style} />
+  </Freeze>
+);
+
 /* ---------- camera + transition FX ---------- */
 /** A 2D camera over a whole scene (zoom / roll / shake / blur). Sits outside the perspective layer, so 3D lifts survive. */
 export const Cam: React.FC<{s?: number; x?: number; y?: number; r?: number; blur?: number; o?: number; ox?: number; oy?: number; children: React.ReactNode}> = ({s = 1, x = 0, y = 0, r = 0, blur = 0, o = 1, ox = 960, oy = 540, children}) => (
@@ -458,3 +465,136 @@ export const ScanLine: React.FC<{y: number; w: number; o?: number; x?: number}> 
     <div style={{position: 'absolute', left: 0, right: 0, top: 38, height: 4, borderRadius: 2, background: 'linear-gradient(90deg, rgba(255,255,255,0), #fff 12%, #fff 88%, rgba(255,255,255,0))', boxShadow: '0 0 18px 4px rgba(255,255,255,.8)'}} />
   </div>
 );
+
+/* ---------- v11: ALFA's mark, node glow, wake typing, corner labels, blur settle ---------- */
+export const WAKE = '#8337F1'; // the Generate purple: only on ALFA's actions
+export type Pt = {at: number; x: number; y: number};
+
+/** Where ALFA's mark is at frame f along timed points (eased hops), plus a short trail of past positions. */
+export const markAt = (f: number, pts: Pt[]) => {
+  const pos = (t: number) => {
+    if (t <= pts[0].at) return {x: pts[0].x, y: pts[0].y};
+    for (let i = 1; i < pts.length; i++) {
+      if (t <= pts[i].at) {
+        const p = ip(t, [pts[i - 1].at, pts[i].at], [0, 1], INOUT);
+        return {x: pts[i - 1].x + (pts[i].x - pts[i - 1].x) * p, y: pts[i - 1].y + (pts[i].y - pts[i - 1].y) * p};
+      }
+    }
+    const l = pts[pts.length - 1];
+    return {x: l.x, y: l.y};
+  };
+  const {x, y} = pos(f);
+  const trail: [number, number][] = [1, 2, 3, 4].map((k) => {
+    const q = pos(f - k);
+    return [q.x, q.y];
+  });
+  return {x, y, trail};
+};
+
+/** ALFA's real mark (the FE favicon) as a small glowing object with a soft trail: the thread through the video. */
+export const Mark: React.FC<{x: number; y: number; trail?: [number, number][]; o?: number; s?: number}> = ({x, y, trail = [], o = 1, s = 1}) => (
+  <>
+    {trail.map(([tx, ty], i) =>
+      Math.hypot(tx - x, ty - y) < 2 ? null : (
+        <div key={i} style={{position: 'absolute', left: tx - 10, top: ty - 10, width: 20, height: 20, borderRadius: '50%', background: 'rgba(160,110,255,.6)', filter: 'blur(4px)', opacity: o * (0.55 - i * 0.12), scale: String(s * (1 - i * 0.16))}} />
+      ),
+    )}
+    <div style={{position: 'absolute', left: x - 20, top: y - 20, width: 40, height: 40, borderRadius: '50%', opacity: o, scale: String(s), background: '#17131f', boxShadow: '0 0 0 1.5px rgba(200,170,255,.9), 0 0 28px 8px rgba(131,55,241,.75), 0 0 80px 30px rgba(131,55,241,.3)'}}>
+      <Img src={staticFile('alfa-mark.png')} style={{position: 'absolute', left: 7, top: 7, width: 26, height: 26}} />
+    </div>
+  </>
+);
+
+/** A node lights up in the Generate purple when ALFA's mark reaches it, then decays (exponential). */
+export const NodeGlow: React.FC<{x: number; y: number; w: number; h: number; at: number; r?: number}> = ({x, y, w, h, at, r = 8}) => {
+  const f = useCurrentFrame();
+  if (f < at) return null;
+  const o = ip(f, [at, at + 3], [0, 1]) * Math.exp(-Math.max(0, f - at - 3) / 9);
+  if (o < 0.02) return null;
+  return <div style={{position: 'absolute', left: x - 2, top: y - 2, width: w + 4, height: h + 4, borderRadius: r, opacity: o, boxShadow: `0 0 0 2px ${WAKE}, 0 0 24px 4px rgba(131,55,241,.7)`, pointerEvents: 'none'}} />;
+};
+
+/** A prompt typed at ~24 cps; the newest letters are in the Generate purple and cool to the text colour (accent-typed-prompt). */
+export const WakeType: React.FC<{text: string; at: number; cps?: number; size: number; color?: string; font?: string; style?: React.CSSProperties}> = ({
+  text,
+  at,
+  cps = 24,
+  size,
+  color = '#e6e6ea',
+  font = "'Adwaita Sans', Inter, system-ui, sans-serif",
+  style,
+}) => {
+  const f = useCurrentFrame();
+  const per = 30 / cps;
+  return (
+    <div style={{position: 'absolute', fontFamily: font, fontSize: size, whiteSpace: 'pre', ...style}}>
+      {[...text].map((ch, i) => {
+        const age = f - (at + i * per);
+        if (age < 0) return null;
+        return (
+          <span key={i} style={{color: interpolateColors(age, [0, 5], ['#B98CFF', color]), textShadow: age < 5 ? `0 0 ${10 * (1 - age / 5)}px rgba(131,55,241,.9)` : undefined}}>
+            {ch}
+          </span>
+        );
+      })}
+    </div>
+  );
+};
+
+/** One small label per shot, bottom left, typed on letter by letter and erased from the end before the cut (corner-type-labels). */
+export const CornerLabel: React.FC<{text: string; at: number; out?: number; per?: number; x?: number; bottom?: number; size?: number}> = ({text, at, out, per = 2.5, x = 72, bottom = 64, size = 54}) => {
+  const f = useCurrentFrame();
+  const shown = Math.min(text.length, Math.max(0, Math.floor((f - at) / per) + 1));
+  const gone = out == null ? 0 : Math.max(0, Math.floor((f - out) / (per * 0.6)) + 1);
+  const n = Math.max(0, shown - gone);
+  if (f < at || n === 0) return null;
+  return (
+    <div style={{position: 'absolute', left: x, bottom, ...cond(860, 100), fontSize: size, letterSpacing: 0.5, color: '#fff', whiteSpace: 'pre', textShadow: '0 2px 18px rgba(0,0,0,.55), 0 0 2px rgba(0,0,0,.4)'}}>
+      {text.slice(0, n)}
+    </div>
+  );
+};
+
+/** Hard cut + blur settle: the incoming content arrives blurred and a little low, and is sharp within ~0.3 s. */
+export const Settle: React.FC<{children: React.ReactNode; dur?: number}> = ({children, dur = 9}) => {
+  const f = useCurrentFrame();
+  const p = ip(f, [0, dur], [0, 1], OUT);
+  return <AbsoluteFill style={{filter: p < 1 ? `blur(${(1 - p) * 8}px)` : undefined, translate: `0 ${(1 - p) * 14}px`}}>{children}</AbsoluteFill>;
+};
+
+/*
+ * v11b "fast and punchy" (transitions/whip-pan-cut.md, ui-punch-in-cut.md).
+ * Pan: whip-pan cut inside the footage. A shot opens mid-pan (3 frames of heavy horizontal smear, over-exposed,
+ * moving left into place) and/or leaves on one (its last 2 frames smear on to the left). Both halves pan the
+ * same way, so back-to-back scenes read as one whip.
+ */
+export const Pan: React.FC<{id: string; dur: number; inn?: boolean; out?: boolean; children: React.ReactNode}> = ({id, dur, inn = true, out = true, children}) => {
+  const f = useCurrentFrame();
+  const pi = inn ? ip(f, [0, 3], [1, 0]) : 0;
+  const po = out ? ip(f, [dur - 2, dur - 0.01], [0, 1]) : 0;
+  const k = Math.max(pi, po);
+  return (
+    <MBlur id={id} x={60 * k} style={{translate: `${160 * pi - 160 * po}px 0`}}>
+      <AbsoluteFill style={{filter: k > 0.01 ? `brightness(${1 + 0.6 * k})` : undefined}}>{children}</AbsoluteFill>
+    </MBlur>
+  );
+};
+
+/** ui-punch-in-cut: a one-frame jump in scale at `cut` (no zoom frames, no blur); the drift runs straight through. */
+export const punch = (f: number, cut: number, k = 1.9) => (f >= cut ? k : 1);
+
+/** A word that hits big in the middle of the frame and holds for a moment, then cuts out. "ALFA" takes the lavender. */
+export const Slam: React.FC<{text: string; at: number; dur?: number; size?: number}> = ({text, at, dur = 16, size = 150}) => {
+  const f = useCurrentFrame();
+  if (f < at || f >= at + dur) return null;
+  const s = ip(f, [at, at + 3], [1.16, 1], OUT);
+  return (
+    <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center', background: 'radial-gradient(ellipse 60% 42% at 50% 50%, rgba(8,6,14,.55), transparent 75%)'}}>
+      <div style={{...cond(900, 72), fontSize: size, lineHeight: 0.92, color: '#fff', textAlign: 'center', letterSpacing: -1, scale: String(s), textShadow: '0 10px 50px rgba(0,0,0,.55)', whiteSpace: 'pre'}}>
+        {text.split(/(ALFA)/).map((w, i) => (
+          <span key={i} style={w === 'ALFA' ? {color: C.lav} : undefined}>{w}</span>
+        ))}
+      </div>
+    </AbsoluteFill>
+  );
+};

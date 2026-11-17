@@ -1,24 +1,29 @@
 import React from 'react';
-import {AbsoluteFill, Img, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Sequence, useCurrentFrame} from 'remotion';
 
-import {Crop, INOUT, ip, Kicker, MBlur, OUT, UI, UIWindow, Clip, whipIn, whipOut, Wipe} from '../lib';
+import {Crop, INOUT, ip, Kicker, MBlur, UI, UIWindow, Clip, Still, whipIn, whipOut, Wipe} from '../lib';
 
 const SW = 1830; // ALFA home with the 90 px sidebar cropped off (alfa.mp4 is full 1920 wide, drawn at x -90)
 const SH = 1080;
-const VID_AT = 24; // the recording starts playing here (first frame is held before)
+const VID_AT = 14; // the recording starts playing here (first frame is held before)
 const TRIM = 14; // source frame where typing starts
-const RATE = 3.3; // send lands on frame 96
-const SEND = 96;
+const RATE = 3.3; // send lands on frame SEND
+const SEND = 86;
+const SEND_SRC = Math.round(TRIM + (SEND - VID_AT) * RATE) - 1; // the last source frame the clip shows (Send)
 const COMPOSER = {x: 386, y: 250, w: 1060, h: 236};
 // where the (lifted) send button lands on screen: the camera dives through it into the canvas
 export const SEND_SCREEN = {x: 1670, y: 530};
-const WHIP_OUT = 98; // canvas whips in at 102 (its frame 0)
+const WHIP_OUT = 88; // the next scene whips in at 92 (its frame 0)
 
 const Rec: React.FC = () => (
   <>
     {/* first frame held until typing starts; after Send the page re-lays out (and the greeting moves), so hold the Send frame */}
-    <Img src={staticFile('alfa-0.png')} style={{position: 'absolute', left: -90, top: 0, width: 1920, height: 1080}} />
-    <Img src={staticFile('alfa-send.png')} from={SEND} style={{position: 'absolute', left: -90, top: 0, width: 1920, height: 1080}} />
+    <Sequence durationInFrames={VID_AT} layout="none">
+      <Still src="alfa.mp4" frame={0} style={{position: 'absolute', left: -90, top: 0, width: 1920, height: 1080}} />
+    </Sequence>
+    <Sequence from={SEND} layout="none">
+      <Still src="alfa.mp4" frame={SEND_SRC} style={{position: 'absolute', left: -90, top: 0, width: 1920, height: 1080}} />
+    </Sequence>
     <Clip src="alfa.mp4" from={VID_AT} dur={SEND - VID_AT} trimBefore={TRIM} playbackRate={RATE} style={{position: 'absolute', left: -90, top: 0, width: 1920, height: 1080}} />
   </>
 );
@@ -29,8 +34,7 @@ export const Prompt: React.FC = () => {
   // whip in from the right (the girl's scene is shoved out left), whip out to the canvas after Send
   const wi = whipIn(f, 0);
   const wo = whipOut(f, WHIP_OUT);
-  const brake = ip(f, [0, 16], [0, 1], OUT);
-  const lift = ip(f, [22, 42], [0, 1], INOUT);
+  const lift = ip(f, [12, 32], [0, 1], INOUT);
   const press = Math.sin(Math.PI * ip(f, [SEND - 3, SEND + 5], [0, 1], INOUT));
   const cx = 1060;
   const cy = 630;
@@ -45,10 +49,7 @@ export const Prompt: React.FC = () => {
         srcH={SH}
         cx={cx}
         cy={cy}
-        s={1 + 0.05 * orbit}
-        rx={9 - 3 * orbit}
-        ry={-9 - 34 * (1 - brake) + 6 * orbit}
-        rz={-4 * (1 - brake)}
+        s={1 + 0.04 * orbit}
         dim={0.65 * lift}
         content={
           <>
@@ -59,7 +60,7 @@ export const Prompt: React.FC = () => {
           </>
         }
         overlay={
-          <Crop {...COMPOSER} srcW={SW} srcH={SH} z={620 * lift} ry={9 * lift} rx={-9 * lift} s={1 + 0.3 * lift - 0.04 * press} glow={lift} radius={18}>
+          <Crop {...COMPOSER} srcW={SW} srcH={SH} z={260 * lift} s={1 + 0.12 * lift - 0.03 * press} glow={lift} radius={18}>
             <Rec />
             {/* send button bloom */}
             <div
@@ -80,8 +81,8 @@ export const Prompt: React.FC = () => {
       />
     </AbsoluteFill>
     </MBlur>
-    <Kicker text="01 · ASK ALFA" at={12} out={SEND - 4} x={112} y={52} />
-    <Wipe text="JUST SAY IT." mode="rise" at={16} out={SEND - 2} dur={10} size={150} wght={900} wdth={68} style={{position: 'absolute', left: 104, top: 88}} />
+    <Kicker text="INPUT" at={8} out={SEND - 4} x={112} y={52} />
+    <Wipe text="ONE SENTENCE." mode="rise" at={10} out={SEND - 2} dur={10} size={150} wght={900} wdth={68} style={{position: 'absolute', left: 104, top: 88}} />
     </>
   );
 };

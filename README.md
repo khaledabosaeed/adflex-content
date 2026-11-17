@@ -4,24 +4,27 @@ The working repo for AdFlex's social reels, ads and website hero videos: ideas, 
 
 ## Layout
 ```
-CLAUDE.md / AGENTS.md   instructions for AI assistants
-brand/                  colours, logo, fonts, tone, end-card rules
+CLAUDE.md               instructions for AI assistants (AGENTS.md links to it)
+brand/                  colours, logo, tone, end-card rules; fonts/, marks/ (ALFA, Claude), sfx/
 characters/             recurring characters: look, reference links, voice, prompts
 references/<type>/      viral videos we adapted and where to search, by type
 motion-styles/          reusable motion styles copied from references, by type
+transitions/            reusable shot-to-shot transitions, each with its reference link and recipe
 videos/
   ad/                   paid ads: presenter/narrator demos AdFlex, ad CTA
   social/               no-dialogue viral comedy reels ending on an AdFlex card
-  hero/                 16:9 website heroes and product promos
+  hero/                 16:9 website heroes and product promos; hero/README.md holds the hero rules
   <type>/<slug>/
     brief.md            goal, audience, idea, reference, status (frontmatter)
     production.md       script/timeline, versions, feedback, lessons
     assets.md           full links to every image, clip and audio file
-    build/              editing scripts for this video
+    build/              editing scripts; build/remotion/ for Remotion builds (media.tsv lists git-ignored clips)
+    renders/            outputs (git-ignored)
 templates/new-video/    copy this to start a video
+templates/remotion-video/  starter Remotion build (setup.sh, lib.tsx, Sound, render.sh)
 templates/motion-style.md  copy this to add a motion style
 lessons/                model and editing lessons
-tools/                  reusable scripts (Arabic text renderer, etc.)
+tools/                  reusable scripts (fetch_media.sh, talking-head-reel, ...)
 ```
 
 ## Videos
@@ -49,7 +52,7 @@ Status as of 2026-11-15.
 | [bloom-hero](videos/hero/bloom-hero/brief.md) | "Bloom · بلوم" coffee-cart GPT Image 2.6 hero | 16:9 + social | v4 final |
 | [diner-hero](videos/hero/diner-hero/brief.md) | "Al's Diner" hero | 16:9 + social | Superseded by Bloom |
 | [genjutsu-promo](videos/hero/genjutsu-promo/brief.md) | Genjutsu swap tool promo | 20 s, 16:9 | Final |
-| [workflow-hero](videos/hero/workflow-hero/brief.md) | "Workflow × ALFA" hero: one sentence to ALFA builds and runs a real workflow | 20 s, 16:9, loop with music + SFX | v6 (music + sound effects) rendered, awaiting review |
+| [workflow-hero](videos/hero/workflow-hero/brief.md) | "Workflow × ALFA" hero: one sentence to ALFA builds and runs a real workflow | 21.8 s, 16:9, loop with music + SFX | v18 (final quality: ProRes master, new music + SFX, upscaled story) rendered, awaiting review |
 
 **Nothing has been published.** Some posts exist as drafts only.
 
@@ -63,6 +66,6 @@ See [SETUP.md](SETUP.md) for what to install, and run `bash tools/check_setup.sh
 ## Getting started
 ```bash
 git clone <repo-url> && cd adflex-content
-claude      # or any AI assistant; it reads CLAUDE.md / AGENTS.md
+claude      # or any AI assistant; it reads CLAUDE.md
 ```
 Connect the AdFlex MCP in your own client and sign in with your own AdFlex account (see `.mcp.json`).

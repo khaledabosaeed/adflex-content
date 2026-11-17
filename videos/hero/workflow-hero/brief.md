@@ -1,16 +1,17 @@
 ---
 title: "Workflows in one sentence: Lama's candle shop hero"
 slug: "workflow-hero"
-status: "v6 (music + sound effects) rendered, awaiting review"
+status: "v18 (final-quality render: ProRes master, new shaped music + SFX, upscaled story, 21.8 s) rendered, awaiting review"
 type: "hero"
-format: "20 s, 16:9, 1920x1080, loop with music + SFX (autoplays muted on the site)"
+format: "22.8 s, 16:9, 1920x1080, loop with music + SFX (autoplays muted on the site)"
 language: "English"
 adflex_account: "devAdflex for stills, prod Adflex for ALFA/canvas recordings"
 characters: ""
-motion_styles: [glitch-split-whip]
+motion_styles: [glitch-split-whip, ui-punch-in-cut, whip-pan-cut, ui-macro-dolly, status-line-zoom, button-press, card-to-fullbleed, button-to-player-morph, object-carry]
 cta: "Build workflows in one sentence · adflex.ai"
 production_chat: ""
-cost_credits: 1473
+cost_credits: 2917
+final_url: ""             # set once the team approves a final (Drive / CDN)
 published: false
 ---
 
@@ -40,6 +41,6 @@ No dedicated workflow reference yet. Structure borrows from refs already in the 
 ## Files
 - [production.md](production.md): script, shot list, versions, feedback
 - [assets.md](assets.md): full links to every asset
-- `build/`: editing scripts
-- Motion preview, 16:9 hero (current): https://claude.ai/artifact/3kqzGaJ2o8J33y9kgxktTG (source: `build/motion-preview.src.html`; `__GIRL__` is replaced with the base64 of shot 1 v3)
+- `build/remotion/`: the Remotion build (see its README: `media.tsv`, `render.sh`)
+- Early motion preview (before v1): https://claude.ai/artifact/3kqzGaJ2o8J33y9kgxktTG (its source `build/motion-preview.src.html` was removed with the v1 HTML pipeline; it is in git history)
 - Old 9:16 reel preview (superseded): https://claude.ai/artifact/Xc97zJP4rJZ5zFbVkuvL5a

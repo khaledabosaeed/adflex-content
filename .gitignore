@@ -6,8 +6,17 @@ renders/
 *.wav
 *.mp3
 *.zip
+# images a build uses are not kept in git either: list them in the build's media.tsv (their CDN link)
+# or read a frame straight from a clip (<Still> in lib.tsx). Images already committed stay until removed.
+videos/**/public/**/*.jpg
+videos/**/public/**/*.jpeg
+videos/**/public/**/*.png
+videos/**/public/**/*.webp
 # local
 .DS_Store
 __pycache__/
 node_modules/
 .env
+# small synthesized SFX that are not on the CDN
+!brand/sfx/*.wav
+!**/public/audio/click.wav

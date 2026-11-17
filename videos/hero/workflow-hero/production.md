@@ -84,3 +84,124 @@ Motion rules (hero): Archivo Black type-on, white line + #8B3EF7 line; the glowi
     - A shimmer on the scan line, three pops for the results, and an impact on the end-card logo.
   - The generated click came out silent, so a free synthesized click is used instead.
   - Mix: −15.2 LUFS integrated, true peak −0.4 dBFS (after an `alimiter` pass on the AAC).
+- 2026-11-16 (later): **Repo cleanup, no new render.**
+  - Removed the v1 HTML pipeline (`build/comp.html`, `render.cjs`, `extract.sh`, `encode.sh`, `motion-preview.src.html`, `build/assets/`; still in git history) and the unused `public/` files. Deleted the v1 frame dumps (`renders/frames`, `renders/out`).
+  - The build's clips and audio are listed in `build/remotion/media.tsv` and fetched with `tools/fetch_media.sh`. `build/remotion/render.sh <version>` does render + limiter + WebM + poster + loudness check.
+  - The ALFA clips in the build were made privacy-safe: the sidebar (chat history, avatar) and the name in the greeting are painted out. The composition looks the same.
+- 2026-11-17: **v7** (`renders/workflow-hero-v7.mp4` / `.webm` / `-poster.png`, 25.6 s). Team feedback on v6: "some shots feel incomplete; the result doesn't land, and it isn't clear that ALFA produces it."
+  - New **ALFA reply** beat (4 · 3.2 s) from the real Take A2: Approve → ALFA's card "Product Photo to 3 Ads and a Music Story · Draft saved" appears and lifts toward the camera → click **Open workflow** → whip into the canvas. Text: "ALFA PLANS / THE WHOLE WORKFLOW." Canvas text is now "EVERY STEP, / ALREADY WIRED."
+  - New **Results** beat (6 · 3.5 s): the outputs leave the canvas as big 3D cards. The story video (with music) and ad 1 (ALUNE) are big; ads 2–3 stay small and pushed back (team choice: "Ad 1 big, rest small"); a music chip. Text: "MADE BY ALFA: / 3 ADS + A STORY VIDEO." The old story-video lift-out on the canvas is gone.
+  - 20 s → 25.6 s. Music: a fourth bar-aligned segment fades out at the loop. New SFX cues for Approve, the card, Open workflow and the result cards.
+  - Mix: −15.1 LUFS, peak −1.0 dBFS. No credits spent.
+- 2026-11-17 (later): **v8** (`renders/workflow-hero-v8.mp4` / `.webm` / `-poster.png`, 25.6 s). Team feedback on v7: "you've put in a lot of motion and icons of your own."
+  - Removed the invented tool windows (Image tool, Video editor, Upscaler, Music, Voice, Story maker) and file chips from the problem scene, and their pop SFX. The scene is now the girl, the text and a slow push-in.
+  - Much calmer motion: UI windows sit flat (no tilt, swing or orbit), the canvas no longer follows the node with the camera, lift-outs are smaller and flat, and the result cards fade in place instead of flying in from depth. Whips stay only between scenes.
+  - Kept on purpose (the team chose not to remove them): the × and selection handles in the title, the glowing node on the canvas, the music chip and the tags on the result cards.
+  - Limiter lowered to 0.8: −15.1 LUFS, peak −1.4 dBFS.
+- 2026-11-17 (later): **v9 script approved: INPUT → OUTPUT, modelled on the Genjutsu promo's structure.** Team feedback on v8: "make it more real; the shots and motion you added aren't the best and the idea isn't 100 % clear; can we do something like the reference?" The reference works because it is almost all real output footage, every beat is one idea in 2–3 words, its strongest beat is a one-click swap, and it ends on the product. The girl scene is dropped.
+
+  | # | Time | Picture | Text |
+  |---|---|---|---|
+  | 1 | 0–2 | Current WORKFLOW × ALFA glitch title | — |
+  | 2 | 2–5 | INPUT: the product photo card next to the real ALFA composer, the sentence typing | ONE PHOTO. / ONE SENTENCE. |
+  | 3 | 5–9 | Diagonal split, INPUT left (the photo), OUTPUT right, matched cuts every 0.5 s through the real outputs (ad, story video, ad…) | 3 ADS + A STORY VIDEO |
+  | 4 | 9–13 | Three quick whip cards, real UI only: ALFA's workflow card → the canvas → the Run button | ALFA BUILDS IT · ONE WORKFLOW · RUN IT EVERY WEEK |
+  | 5 | 13–17 | The swap: same workflow on the real canvas, the product photo changes to a new product (an unbranded candle in a glass jar), Run, new outputs | NEW PRODUCT. SAME WORKFLOW. |
+  | 6 | 17–20 | End card | — |
+
+  Needs: a new product photo (quoted 30 cr, nano-banana-2-lite, 4:5) and one more run of workflow `6afb2498539c3a84eb106c27` on the dev canvas (510 cr last time), recorded with `tools/screen-rec` through the local FE. The workflow was built in the FE, so MCP can't run it.
+- 2026-11-17 (later): the team chose **not to run anything new** ("do your idea with what we already have"), so the swap beat (shot 5) became the payoff on the real story video. No credits spent.
+- 2026-11-17 (later): **v9** (`renders/workflow-hero-v9.mp4` / `.webm` / `-poster.png`, 20.5 s), built with existing material only:
+  1. 0–2.1 s: WORKFLOW × ALFA title; the chip now opens on the real input photo (serum) instead of the girl.
+  2. 2.1–3.6 s: ONE PHOTO.: the input photo full frame (contained over a blurred copy, so the bottle isn't cropped), tag INPUT.
+  3. 3.6–6.7 s: ONE SENTENCE.: the real ALFA composer, the prompt typing, Send.
+  4. 6.7–10.3 s: INPUT | OUTPUT diagonal split: the photo left; right, hard cuts every 0.5 s through ad 1, the story video, ad 2 (its left, one-bottle panel) and ad 1 close. "MADE BY ALFA / 3 ADS + A STORY VIDEO." Ad 3 (the 4-bottle grid) is left out.
+  5. 10.3–14.1 s: three real-UI cards with whips: ALFA BUILDS IT. (ALFA's workflow card), ONE WORKFLOW. (the canvas after the run), RUN IT EVERY WEEK. (slow push to Run selected · 510 cr and the click). The clip stops on a clean frame right after the click, because the "Review and run" dialog shows the account balance.
+  6. 14.1–17.3 s: the story video big over a blurred copy of itself: "FROM ONE SENTENCE / TO A STORY VIDEO."
+  7. 17.3–20.5 s: end card.
+  - The girl, the reply/canvas/results scenes of v7–v8 are out of the timeline (`Reply.tsx`, `Canvas.tsx`, `Results.tsx` stay in `src/scenes/` unused; `Problem.tsx` deleted). Scene starts live in `src/timeline.ts`.
+  - Music drop moved to the whip into INPUT | OUTPUT (6.5 s). Limiter at 0.7 because 0.8 still hit −0.0 dBFS true peak after AAC: −15.7 LUFS, peak −2.5 dBFS.
+- 2026-11-17 (later): team feedback on v9: "I want the shot where this photo turns into the workflow, and inside the workflow the shots change and it becomes a different product; edit it or generate." The team chose **one new product, 513 credits** (photo 30 + 3 ads 168 + story video 315). The workflow can't be re-run over MCP (built in the FE), so the new product's outputs were generated directly and swapped into the real canvas screenshot in the edit.
+- 2026-11-17 (later): **v10** (`renders/workflow-hero-v10.mp4` / `.webm` / `-poster.png`, 22.8 s). Shots 1–4 as v9, then:
+  5. 10.3–11.6 s: ALFA BUILDS IT. (the ALFA workflow card only; the ONE WORKFLOW / RUN IT EVERY WEEK cards are out).
+  6. 11.6–16.4 s, new `Flow` scene: the serum photo full frame, then the camera pulls back and the photo lands in the real canvas's "Your product photo" node, with the real workflow around it: ONE WORKFLOW. Then a new product (unbranded candle) wipes into the photo node and, following the wires, every output node wipes to the candle's outputs: the brief text, the story video, the music + video node, and the 4 thumbnails of the final node. NEW PRODUCT. / SAME WORKFLOW. The canvas is the real `runout.png`; only the media inside the nodes is replaced at the measured rects, and the play icons stay visible through a hole in each overlay. The brief node's text is re-written for the candle in the node's own font (Cairo 9 px). The mouse cursor is painted out.
+  7. 16.4–19.6 s: both story videos side by side (serum and candle): "FROM ONE SENTENCE / A STORY VIDEO / FOR EACH PRODUCT."
+  8. 19.6–22.8 s: end card.
+  - Mix: −15.4 LUFS, peak −2.4 dBFS. Concurrency 8 timed out on a frame; rendered with `CONC=4 bash render.sh v10 --timeout=120000`.
+  - Team rule after v10: no images in git and no re-uploaded copies. The build's stills now come from their original CDN links in `media.tsv`, and the frames (ALFA card, story thumbnail, the Prompt holds) are `<Still>`s of the uploaded clips. This also fixed a Prompt bug: `alfa-send.png` was drawn from frame 0 (an `<Img>` has no `from`), so the full sentence showed before the typing started.
+
+- 2026-11-17 (later): **v11** (`renders/workflow-hero-v11.mp4`, 27.1 s): the v11 script (Lama alone, ALFA as the hero: problem → TELL ALFA → ALFA PLANS IT → ALFA BUILDS THE WORKFLOW → 3 ads + story → ALFA EDITS IT → winter ads → Lama photographs her candle → ALFA RUNS IT AGAIN → end card), hard cuts with a short blur settle and small corner labels. The edit beat uses the real recording `alfa-edit.mp4`, band-cropped to the sent bubble and ALFA's status; ALFA did not finish the edit on dev, the winter ads were made directly with seedream (see assets.md).
+- 2026-11-17 (later): team feedback on v11: "the video stutters, I don't like the transitions and the motion, change the transition style; make the girl shot more exciting and faster; make the whole video a bit faster." Chosen direction: **fast and punchy**.
+- 2026-11-17 (later): **v12** (`renders/workflow-hero-v12.mp4`, 21.3 s):
+  - Stutter fix: girl.mp4 and lama-candle.mp4 are 24 fps sources converted to 30 fps (every 5th frame doubled). Played at **1.25x**, each output frame shows one real source frame, so they run smooth and faster.
+  - Every cut sits on the music's beat grid (15 frames). Scenes join with **whip-pan cuts** (lib `Pan`: 3 smeared, over-exposed frames in, 2 out, same direction, short whoosh). UI beats get **punch-ins** (instant 1.9x onto Send and onto Approve and run; `punch()`). Each scene's line now **slams in big in the centre** for ~0.4 s (lib `Slam`) instead of the small corner labels.
+  - The girl shot: three beats, EVERY WEEK. → punch on her face, SAME WORK. → tighter punch, whip out. Lama's candle shot: shutter flash + punch on the tap, cut on the beat to the phone coming at the lens.
+  - The music drop now lands on ALFA BUILDS THE WORKFLOW. (8.0 s); the intro plays from source 0.
+
+- 2026-11-17 (later): team feedback on v12: "I want the photo she takes to move and land in the prompt too; some shots are in an order that isn't logical." Chosen: **two Lama shots** (a new one photographing the serum at the start, 333 credits) and **drop the winter edit** (it broke the story, and ALFA had not really done it).
+- 2026-11-17 (later): **v13** (21.3 s): title → problem → Lama photographs her serum (shutter flash + punch on the tap) → flash to white, the photo flies out full frame and lands on the real attachment thumbnail in ALFA's composer → the sentence types, punch on Send → ALFA plans it (the music drop lands on the Approve click) → builds the workflow → 3 ads + a story video → next week: Lama photographs a new candle → its photo flies into the composer the same way, "Same workflow, new product." → ALFA runs it again (the photo shrinks into the node, outputs swap) → end card. `Edit.tsx` and `Winter.tsx` are out of the timeline (files kept).
+
+- 2026-11-17 (later): team feedback on v13: "the steps inside ALFA aren't the best: improve them with motion and strong transitions" (chosen: 3D motion on the real UI, no credits); then "after the generation, make the transition special and focus on the final result; and after the photo, make it feel easy and move from the scene to the product."
+- 2026-11-17 (later): **v14** (21.8 s), all edit-only:
+  - Scene → product: each Lama shot ends with a match-cut zoom onto the product in the room, landing exactly where and as big as the product is in its photo (serum ×2.2, candle ×1.6 with the photo opening shifted right), then the photo flies into the composer. The white flashes are gone.
+  - The prompt: once the photo lands, the composer turns into a tilted 3D panel and the camera follows the typing (ui-macro-dolly), then punches onto Send.
+  - ALFA plans it (new `Plan.tsx`): ALFA's real status "Understanding the request…" fills the frame and slides (status-line-zoom), snaps back to the tilted chat; the real "Run this plan?" card lifts off the page, punch onto Approve, the button sinks and springs back lit with a lavender ring (button-press); the reply page slides down the three outputs and flattens onto the real workflow card, "Open workflow" lights, and the card opens into the canvas (card-to-fullbleed).
+  - After the run: the camera dives at the workflow's last node (the deliverables), it lights up, and its story-video thumbnail grows into a big player (button-to-player-morph). New `Result.tsx`: the story plays front and centre with the real ads swinging in as 3D cards (ad1, ad2's left half; ad3 has invented label text, so it stays out), "3 ADS + A STORY VIDEO." under them. `Split.tsx` is out of the timeline.
+
+- 2026-11-17 (later): team feedback on v14: "remove the dots above ALFA, Claude and MCP; at the end mention only ALFA." **v15**: the end card keeps the AdFlex logo, BUILD WORKFLOWS IN ONE SENTENCE., one ALFA chip, "Works inside the AI you already use." and the CTA; the three dots and the Claude / MCP chips are gone (a team call for this hero, against the usual equal-weight chips rule).
+
+- 2026-11-17 (later): team feedback on v15: "make ALFA clearer in the closing shot; it's a hero, two words on it are enough." **v16**: the end card is only the AdFlex logo (top) and ALFA: its real mark springs in big with a glow and one ring, and "ALFA" sharpens in under it in the brand gradient. The tagline, the "works inside the AI you already use" line and the CTA are gone (the website around the hero carries them).
+
+- 2026-11-17 (later): team: "find a better style for the transition into the ending." **v17**: object carry into the end card instead of the whip. ALFA's mark, which walked the canvas nodes, doesn't leave: after the last node it flies to the centre and grows (the disc and glow fade, leaving the bare mark at the end card's size and place) while the canvas pulls back, blurs and goes dark; the end card starts with that mark already in place, a ring goes out, "ALFA" sharpens in under it and the AdFlex logo settles on top. Riser + whoosh on the carry, impact on the landing.
+
+- 2026-11-17 (later): team: "render it at the highest quality, add music and transitions, and generate whatever is needed if the quality is poor." Approved 97 credits (music 43, story upscale 30, 4 SFX 24). **v18** (21.8 s), same picture edit as v17:
+  - Quality: `render.sh` now renders a **ProRes 422 HQ master** (`-master.mov`, PCM audio, ~560 MB) and makes every deliverable from it: MP4 H.264 High CRF 12 preset slow + AAC 256k (~35 MB), WebM VP9 CRF 24 + Opus 160k (~8.5 MB), poster.
+  - The story video is the 1080×1920 upscale (it was 720p with doubled frames, so it juddered in the big Result player).
+  - Music: a new 120 BPM bed, arranged by `make_music.sh` (low-passed intro, half a beat of silence, drop on the Approve click at 8.0 s, high-passed breakdown under Lama's second product, second drop into the end card).
+  - Transitions: a new whip SFX on every whip-pan cut, a riser + a card-lift swoosh into the drop, a morph swell as the story thumbnail grows into the player, a logo hit on the end card.
+  - Mix: −15.6 LUFS integrated, true peak −2.0 dBFS.
+
+## Credits
+Earlier versions: 1,473 credits (see the entries above). From v10 on, every paid generation is logged here.
+
+| Date | Account | What | Model | Credits |
+|---|---|---|---|---|
+| 2026-11-17 | dev | Candle product photo (4:5) | nano-banana-2-lite | 30 |
+| 2026-11-17 | dev | Candle ads 1–3 (1:1, 2K) | seedream-5-5 | 168 |
+| 2026-11-17 | dev | Candle story video (5 s, 720p, 9:16) | gemini_omni_flash_1_2 | 315 |
+| | | **Total for v10** | | **513** |
+| 2026-11-17 | dev | v11 shot 9: Lama photographs her candle (16:9) | nano-banana-2 | 60 |
+| 2026-11-17 | dev | v11 shot 9 animated (3 s, 1080p, image_to_video; record 6afc8003d6d610203f3009ee) | gemini_omni_flash_1_2 | 273 |
+| 2026-11-17 | dev | v11 shot 8: winter versions of serum ads 1–3 (edit_existing, 2K) | seedream-5-5 | 168 |
+| 2026-11-17 | dev | v13 shot 3: Lama photographs the serum (16:9) | nano-banana-2 | 60 |
+| 2026-11-17 | dev | v13 shot 3 animated (3 s, 1080p, image_to_video; record 6afca643d6d610203f30a184) | gemini_omni_flash_1_2 | 273 |
+| 2026-11-17 | dev | v18 music bed (22.6 s, 120 BPM) | elevenlabs music | 43 |
+| 2026-11-17 | dev | v18 story video upscale to 1080×1920 (record 6afcb2a4d6d610203f30c574) | bytedance_video_enhancement_standard | 30 |
+| 2026-11-17 | dev | v18 SFX: whip, card lift, morph, logo hit | sound effects | 24 |
+| | | **Running total for this video** | | **2917** |
+
+## v11 script (proposed 2026-11-17, awaiting approval)
+Team feedback on v10: a human element in the transitions, more than one change in the same workspace, ALFA's role clear, built on a problem and its fix (no competitor comparison), and show a prompt **editing** the workflow. ALFA really edits saved workflows (`get_workflow_context` → `prepare_workflow_graph` with `workflowId`, in adflex-be `src/modules/alfa/tools/workflow/workflow.tools.ts`), so the edit beat is honest.
+
+- **Problem:** every week a small business redoes the same content by hand. Workflows fix that, but a node canvas is scary to build and harder to change.
+- **Idea:** you don't touch the canvas, you talk to it. One sentence builds the workflow, one sentence edits it.
+- **People:** Lama only (team decision, 2026-11-17): the girl in `girl.mp4` (still 1 v3), who owns the candle shop. The earlier Karim + Lama option was dropped.
+- **Motion:** [ui-step-walkthrough](../../../motion-styles/ui-step-walkthrough.md) structure with a fixed AdFlex lockup, [in-world-oner](../../../motion-styles/in-world-oner.md) for the people, [accent-typed-prompt](../../../motion-styles/accent-typed-prompt.md) for both prompts, [corner-type-labels](../../../motion-styles/corner-type-labels.md) (typed) for every label, the existing glitch title. Transitions: [hard-cut-blur-settle](../../../transitions/hard-cut-blur-settle.md) by default, [foreground-wipe](../../../transitions/foreground-wipe.md) + [object-carry](../../../transitions/object-carry.md) (the product photo is the thread: phone → composer attachment → canvas node), [style-swap-cut](../../../transitions/style-swap-cut.md) for summer → winter ads, and one [whip-push](../../../transitions/whip-push.md) into the end card.
+
+| # | Time (s) | Picture | Source | Label (bottom left, typed) | In |
+|---|---|---|---|---|---|
+| 1 | 0–2.1 | WORKFLOW × ALFA glitch title | existing | — | — |
+| 2 | 2.1–4.6 | **Problem.** Karim in his small skincare studio at night, shelves of unlabeled bottles, exhales, lifts his phone and photographs the serum on the stone ledge; the phone comes toward the lens and fills the frame | generated (still + 3 s anim) | EVERY WEEK. SAME WORK. | hard cut + blur settle |
+| 3 | 4.6–7.4 | The real ALFA composer; the photo from his phone shrinks into the attachment; the sentence types with a purple wake: "Build me a workflow: I give you a product photo, you make 3 ads and a story video with music." Send | `alfa.mp4` (field cleared, text re-typed over it) | ONE SENTENCE BUILDS IT. | foreground wipe (the phone) |
+| 4 | 7.4–8.6 | ALFA's workflow card, "Open workflow" | `alfa-reply.mp4` | — | hard cut |
+| 5 | 8.6–11.0 | The real canvas; the attached photo lands in "Your product photo"; slow push along the wires | `runout.png` + v10 morph | ONE WORKFLOW. | object carry |
+| 6 | 11.0–13.0 | INPUT \| OUTPUT split, the real serum outputs (shortened) | existing | 3 ADS + A STORY VIDEO. | hard cut |
+| 7 | 13.0–16.0 | ALFA beside the canvas: "Also make a winter version of the ads." types with the wake; the canvas gets a new, wired ads node | **new real recording** | ONE SENTENCE EDITS IT. | hard cut |
+| 8 | 16.0–17.6 | Only the new node runs; a summer ad cuts to its winter version | new recording + its real outputs | — | style-swap cut |
+| 9 | 17.6–20.8 | Lama in her candle shop photographs her candle; phone to the lens; the photo lands in the same canvas node and every output flips to the candle, in wire order | generated (still + 3 s anim) + v10 swap | SAME WORKFLOW. HER PRODUCT. | foreground wipe → object carry |
+| 10 | 20.8–23.2 | Everything made: both story videos + the winter ads | existing + new outputs | FROM ONE SENTENCE. | hard cut |
+| 11 | 23.2–26.4 | End card | existing | — | whip push (the only one) |
+
+Needs (credits quoted on dev; get a yes before each):
+- Karim: still 60 + animation 273 (Omni Flash 1.2, 3 s, 1080p). Lama: the same, 333. Stills first, reviewed before animating.
+- Shot 7–8: a real recording of ALFA editing the saved workflow and running only the new node (~168 for 3 Seedream ads; ALFA quotes it in the recording). Public version on prod.

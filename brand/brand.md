@@ -3,11 +3,19 @@
 ## Logo
 - «Ad» #3292FF blue, «Flex» #9848FE purple.
 - Big sparkle gradient #C95AC5 → #55AAFF. Small sparkle #F83AAE → #D453C2.
-- The only file available is a 133×36 PNG from the brand kit: https://cdn-dev.adflex.ai/business/6acb3fb640ba55f116584c78/logos/cea297f5-ba03-4f5f-a856-bf5332d6c36e.png
-- It was rebuilt at 1338×368 for end cards (letters upscaled and snapped to the flat colours, sparkles redrawn as vector superellipse stars).
 - **Best local file: [adflex-logo-1820.png](adflex-logo-1820.png)** (1820×524, transparent, for dark or light backgrounds). Made from the FE's `public/images/authLogo.webp` (456×238, the wordmark + "Adaptive Flexibility"): wordmark cropped, 4× Lanczos, alpha re-thresholded for crisp edges. Use it at up to ~700 px wide.
 - Not the brand logo: the FE's `public/landing-logo.png` (purple "Ad", white "Flex") and `landing-logo-light-mode.png` (purple "Ad", black "Flex"). Don't use them in videos.
 - **TODO:** get a real SVG or high-res logo from AdFlex before running paid ads.
+
+## Marks (small icons for chips and end cards)
+In [marks/](marks/). Use them at small, equal size next to each other; AdFlex stays the hero.
+| File | What | Source |
+|---|---|---|
+| `alfa-mark.png` | ALFA (512×512) | the AdFlex site favicon, FE `public/android-chrome-512x512.png` |
+| `claude-mark.svg` | Claude | FE `public/icons/ai-clients/claude.svg` |
+| *(missing)* | MCP | the FE has no MCP mark; keep MCP as a text chip until we get the official file |
+
+Copy a mark into a Remotion project's `public/` (the `templates/remotion-video` setup step does this).
 
 ## Colours
 | Use | Value |
@@ -20,6 +28,8 @@
 | Dark text | #1C1824 / #333 |
 
 ## Fonts
+Font files (all SIL OFL) are in [fonts/](fonts/): `Archivo-var.ttf` (variable, wght 100–900 × wdth 62–125, from google/fonts `ofl/archivo`), `ArchivoBlack-Regular.ttf`, `Cairo-var.ttf` (wght 200–1000).
+- **Latin labels and titles in motion graphics:** Archivo variable. Condensed labels at wdth 68–72 (light 300 over bold 860); wide titles at wght 900 / wdth 125.
 - **Arabic:** Cairo (ExtraBold for captions, Black for titles) from npm `@fontsource/cairo`, or IBM Plex Sans Arabic for ALFA UI. The Arabic subsets have no ASCII digits, so set numbers in the Latin font.
 - **Latin display:** Archivo Black, Unbounded Black, Anton, Playfair (used on the الحجة signature).
 

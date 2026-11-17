@@ -18,7 +18,7 @@ claude                                 # then run /mcp and sign in to AdFlex
 | What | Why | How |
 |---|---|---|
 | git | Get and update the repo | `dnf/apt/brew install git` |
-| Claude Code (or another AI client) | Reads `CLAUDE.md` / `AGENTS.md` and does the work | claude.com/claude-code |
+| Claude Code (or another AI client) | Reads `CLAUDE.md` (`AGENTS.md` is a link to it) and does the work | claude.com/claude-code |
 | AdFlex MCP login | Generations, assets, imports, drafts | `.mcp.json` already has it. Run `/mcp` in Claude Code and sign in with **your own** AdFlex account. |
 | Access to both AdFlex businesses | Videos use prod "Adflex" or dev "devAdflex" | Ask an AdFlex admin to add you to both |
 | Shared Drive | Final renders live there, not in git | Ask for access to the team folder |
@@ -48,10 +48,10 @@ These make some jobs faster or better. Nothing breaks without them.
 |---|---|---|---|
 | faster-whisper | Transcribes a generated take on your machine so you can check that every word was said right (for example "AdFlex", not "AdFlicks"). | When you generate talking-head clips. Without it you only listen yourself, which is still required anyway. | `python3 -m pip install --user faster-whisper nvidia-cublas-cu12 nvidia-cudnn-cu12` (the last two for the GPU). The first transcription downloads a model (about 0.5 GB for `small`, 3 GB for `large-v3`). |
 | NVIDIA GPU + driver, ffmpeg with cuvid/nvenc, `skia-python` | The `tools/talking-head-reel/` pipeline: GPU decode/encode, 3D overlay, emoji rendering | Talking-head reels with 3D icons | Driver from RPM Fusion / your distro (disable Secure Boot or enrol the key); `python3 -m pip install --user skia-python` |
-| Remotion + three.js | 3D and code-driven motion graphics | Any Remotion build | `npm install` inside the build's `remotion/` folder. The `remotion-best-practices` skill is in `.claude/skills/`. Licence: free for teams of up to 3, companies of 4+ need one. |
+| Remotion + three.js | 3D and code-driven motion graphics | Any Remotion build | New build: `bash templates/remotion-video/setup.sh videos/<type>/<slug>`. Existing build: `npm install` inside its `remotion/` folder, then `bash tools/fetch_media.sh media.tsv` for the clips and audio git ignores. The `remotion-best-practices` skill is in `.claude/skills/`. Licence: free for teams of up to 3, companies of 4+ need one. |
 | Reference MCP servers: What Ships, Launchscene, Refs, Comotion | Let Claude **search** these reference libraries directly (for example "split-screen scenes" or "AI tool launches") instead of reading them as web pages. | When you look for references or motion styles often. | Not in `.mcp.json` yet. Ask before adding: some have paid tiers. |
 | Paid library accounts: Refs Pro, AdSwipeFile, Motion Index Pro | Unlock the hidden part of those libraries: full breakdowns, more ads, more shots. | Only if the free parts aren't enough. | Sign up on each site |
 
 ## Not needed
 - No AdFlex API keys. The MCP login handles access.
-- No video editing app. Editing is done with ffmpeg and Python scripts.
+- No video editing app. Editing is done in Remotion, ffmpeg and Python scripts.

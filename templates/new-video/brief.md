@@ -10,7 +10,8 @@ characters: ""            # slugs from characters/
 motion_styles: []         # slugs from motion-styles/
 cta: ""
 production_chat: ""
-cost_credits: 0
+cost_credits: 0           # running total; each spend is listed in production.md "Credits"
+final_url: ""             # where the approved final lives (Drive / CDN)
 published: false
 ---
 
@@ -34,4 +35,4 @@ Which styles from `motion-styles/` this video uses, and any new style copied fro
 ## Files
 - [production.md](production.md): script, shot list, versions, feedback
 - [assets.md](assets.md): full links to every asset
-- `build/`: editing scripts
+- `build/`: editing scripts (Remotion builds: `build/remotion/`, from `templates/remotion-video`)

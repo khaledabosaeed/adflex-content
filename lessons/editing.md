@@ -27,7 +27,8 @@
 Render heavy composites one at a time. Two in parallel ran out of memory.
 
 ## Remotion
-- Hero videos are built in Remotion now (first: `videos/hero/workflow-hero/build/remotion/`). Preview with `npx remotion studio --port 3003` (port 3000 is the local AdFlex FE), render with `npx remotion render <Comp> out.mp4 --concurrency=8 --crf=16`.
+- Edited videos are built in Remotion now (first: `videos/hero/workflow-hero/build/remotion/`). Start new ones with `bash templates/remotion-video/setup.sh videos/<type>/<slug>`.
+- Git ignores clips, audio and images, so a build that lives only on one laptop can't be rebuilt. List every file it uses in `media.tsv`; images by their original CDN link (size/crop them in code, never re-upload a resize), frames of clips via `<Still src frame>` rather than saved PNGs; `tools/fetch_media.sh` restores them. Paint out names, avatars and chat history in screen recordings **before** uploading. Preview with `npx remotion studio --port 3003` (port 3000 is the local AdFlex FE), render with `npx remotion render <Comp> out.mp4 --concurrency=8 --crf=16`.
 - **Clips must have square pixels.** Chrome honours a video's sample aspect ratio (SAR) and letterboxes the frame, but ffmpeg-extracted stills ignore it, so a still and its video drew ~57 px apart. Re-encode every clip with `setsar=1`. The screen recorder now writes `setsar=1` too.
 - Use `OffthreadVideo` (wrapped in `<Sequence from layout="none">`) for exact frames; give recordings full 1920x1080 frames and crop in the composition, not with odd ffmpeg crop sizes.
 - Lift a UI part out of a floating window by rendering the same clip a second time inside a clipped box that sits in the window's `preserve-3d` overlay, then `translateZ` it toward the camera. Never put `filter`, `opacity < 1` or `overflow: hidden` on an ancestor of the lifted part: they flatten 3D.
@@ -53,3 +54,14 @@ Full recipes are in `motion-styles/3d-icon-pops.md`, `word-synced-captions.md` a
 - Whisper word starts after a pause are early, by up to 1 s, so snap them to `silencedetect` ends. Use Whisper as the clock, never as the caption text.
 - Fluent 3D emoji (github.com/microsoft/fluentui-emoji, MIT) look far better than system emoji next to 3D objects. Recolour near-black ones for dark clothes.
 - Unify motion: one spring and one exit curve for every element (see "House motion rules" in `motion-styles/README.md`). Run the `12-principles-of-animation` skill on animation code before a final render.
+
+## House taste (workflow-hero v7 → v8 feedback)
+- Don't add made-up UI (fake tool windows, file chips, icons) to "explain" a point. Show real AdFlex UI, the real footage, and text.
+- Keep motion calm: flat windows with a slow push-in, whips only between scenes, and fade-in/settle entrances. Tilts, orbits, follow-cams and depth fly-ins read as "too much motion".
+
+## Swapping media inside a real UI screenshot (workflow-hero v10)
+- To show "same workflow, new product" without re-running or mocking the UI: keep the real canvas screenshot and replace only the media inside each node. Measure each node's image rect in the screenshot (threshold the bright pixels with PIL), draw the new media there with the node's corner radius, and leave the real play icons visible through a `radial-gradient` mask hole.
+- Swap in the order of the wires (input → brief → story → final node), a 12-frame top-to-bottom wipe each, a few frames apart. It reads as the workflow running without any made-up UI.
+- Readable UI text that describes the old product must change too. Re-type it in the node's own font and size (the AdFlex canvas uses Cairo, ~9 px at 1×) over the node's background colour.
+- Photo → node "becomes the workflow" move: animate the photo rect from the full frame to the node's on-screen rect, and move the canvas camera so the node stays centred under it at the same height (`scale = R.h / T.h`). Hand off to the in-canvas overlay on the landing frame, so it needs no cut.
+- If `remotion render` times out on a frame, lower the concurrency: `CONC=4 bash render.sh vN --timeout=120000`.

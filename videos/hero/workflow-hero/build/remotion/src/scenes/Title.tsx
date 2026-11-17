@@ -5,8 +5,8 @@ import {C, Clip, cond, IN, INOUT, ip, MBlur, OUT} from '../lib';
 /*
  * Scene 1 (0–2.2 s), Genjutsu-style title:
  *   outline → glitch fill (chromatic split, letters jump) → a light streak runs along the word and leaves the
- *   lower half in the brand gradient → the word splits at the ×, a selected "chip" opens in the gap with the girl
- *   in it → the chip grows to full frame and shoves both words off screen. Scene 2 continues the same clip.
+ *   lower half in the brand gradient → the word splits at the ×, a selected "chip" opens in the gap with Lama (girl.mp4)
+ *   in it → the chip grows to full frame and shoves both words off screen. Scene 2 (Problem) continues the same clip.
  */
 const SIZE = 124;
 const WW = 976; // "WORKFLOW" at 124 px, wght 900, wdth 125 (measured)
@@ -17,9 +17,9 @@ const CY = 560; // caps centre
 const TOP = CY - 66; // div top so the caps sit on CY
 const SHIFT = (WW - WA) / 2; // the slot sits right of centre until the split re-centres it
 export const TITLE_X = 960 + SHIFT;
+export const CHIP_AT = 32; // Lama's clip starts in the chip here; the Problem scene continues it
+export const CHIP_RATE = 1.25; // 1.25 on this 30 fps file (24 fps source) plays one real frame per frame: no judder
 export const TITLE_Y = CY;
-export const CHIP_AT = 32; // the girl clip starts here (scene 2 trims to match)
-export const CHIP_RATE = 0.75;
 const GRAD = `linear-gradient(90deg, ${C.pink}, #9B6BFF 45%, ${C.sky})`;
 
 type Layer = 'outline' | 'fill' | 'grad';
@@ -50,7 +50,7 @@ const Word: React.FC<{text: string; f: number; seed: string; layer: Layer}> = ({
 
 export const Title: React.FC = () => {
   const f = useCurrentFrame();
-  if (f > 68) return null;
+  if (f >= 60) return null;
   const fill = ip(f, [3, 9], [0, 1]);
   const chroma = Math.max(Math.sin(Math.PI * ip(f, [2, 12], [0, 1])), 0.5 * Math.sin(Math.PI * ip(f, [23, 27], [0, 1])));
   const streakX = ip(f, [9, 19], [-300, 2200], INOUT);
