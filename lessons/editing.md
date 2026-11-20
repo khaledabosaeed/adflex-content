@@ -32,6 +32,9 @@ Render heavy composites one at a time. Two in parallel ran out of memory.
 - **Clips must have square pixels.** Chrome honours a video's sample aspect ratio (SAR) and letterboxes the frame, but ffmpeg-extracted stills ignore it, so a still and its video drew ~57 px apart. Re-encode every clip with `setsar=1`. The screen recorder now writes `setsar=1` too.
 - Use `OffthreadVideo` (wrapped in `<Sequence from layout="none">`) for exact frames; give recordings full 1920x1080 frames and crop in the composition, not with odd ffmpeg crop sizes.
 - Lift a UI part out of a floating window by rendering the same clip a second time inside a clipped box that sits in the window's `preserve-3d` overlay, then `translateZ` it toward the camera. Never put `filter`, `opacity < 1` or `overflow: hidden` on an ancestor of the lifted part: they flatten 3D.
+- When you freeze a frame of a screen recording, grab that exact frame with ffmpeg first: layouts shift mid-recording (alfa-plan.mp4 slides its chat left at 3.55 s when the Results panel opens), so a crop measured at 3.6 s was wrong at 3.58 s.
+- In a shell `while read` loop, ffmpeg eats stdin and truncates the next names (`knockout` → `nockout`). Use `ffmpeg -nostdin` inside loops.
+- A generated laptop clip with "locked-off camera on a tripod … screen plain bright white" (Gemini Omni Flash 1.2, image-to-video) held the screen to ±1 px for 5 s, so a real screen recording can be corner-pinned (`matrix3d`) with fixed corners, no tracking (alfa-hero G1, C1).
 - Parallel `remotion still` calls can crash the bundler; run them one after another or render the whole video once at `--scale=0.5`.
 - Hard transitions in Remotion (workflow-hero v3):
   - Put a 2D camera wrapper (scale, roll, shake, blur) *outside* the `perspective` layer. A transform or filter there acts on the projected image and doesn't flatten the 3D lift-outs inside.
@@ -48,6 +51,7 @@ Render heavy composites one at a time. Two in parallel ran out of memory.
 Full recipes are in `motion-styles/3d-icon-pops.md`, `word-synced-captions.md` and `talking-head-punch.md`, and the code is in `tools/talking-head-reel/`.
 - Remotion's headless Chrome uses the Intel iGPU unless you set `__EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json` with `--gl=angle-egl`.
   - `--gl=angle` and `--gl=egl` fail with a WebGL context error.
+  - `render.sh` (template and builds made from it) now sets both by default; `GL=swangle` forces the CPU path. Measured on a 3 s DOM-only preview: CPU (swangle) 20 s, angle-egl on the RTX 3060 10.7 s.
   - `npx remotion gpu` fails; check the renderer with a one-frame composition that prints `WEBGL_debug_renderer_info`.
 - Render a 3D layer only at the size of the box it lives in, as transparent ProRes 4444, and overlay it with ffmpeg. That's faster than a full-frame 3D render, and it can't leave the box.
 - Motion blur for WebGL: render at 120 fps, then `premultiply → tmix=frames=2 → select every 4th → unpremultiply`, which gives a 180° shutter at 30 fps. `<HtmlInCanvasMotionBlur>` is for HTML, not WebGL.
@@ -65,3 +69,14 @@ Full recipes are in `motion-styles/3d-icon-pops.md`, `word-synced-captions.md` a
 - Readable UI text that describes the old product must change too. Re-type it in the node's own font and size (the AdFlex canvas uses Cairo, ~9 px at 1×) over the node's background colour.
 - Photo → node "becomes the workflow" move: animate the photo rect from the full frame to the node's on-screen rect, and move the canvas camera so the node stays centred under it at the same height (`scale = R.h / T.h`). Hand off to the in-canvas overlay on the landing frame, so it needs no cut.
 - If `remotion render` times out on a frame, lower the concurrency: `CONC=4 bash render.sh vN --timeout=120000`.
+
+- **Corner-pinning onto a generated white laptop screen:** a `>225` brightness threshold finds the corners to ±1 px, but it misses the screen's anti-aliased rim, so a thin white line shows around the pinned UI. Push each corner ~8 px (at 1920) out from the quad's centre. Check by drawing the quad on a frame and by a full-res still crop (alfa-hero v2).
+- **Shell loops over "name url" pairs:** the Bash tool runs zsh, where `set -- $pair` does not split words. Wrap the loop in `bash -c '…'` (and keep `ffmpeg -nostdin`). A failed run had already appended bad lines to `media.tsv`, so clean it before retrying.
+
+- **Rendering on the GPU (Remotion, RTX 3060, measured 2026-11-18 in an isolated cgroup):** Chrome on `--gl=vulkan` with `--concurrency=4` draws with about half the CPU of `angle-egl` ×8 at the same wall time, with matching frames (mean diff < 1/255). Render JPEG frames (`--sequence`) and encode with `h264_nvenc` (5 s CPU vs ~37 s for x264 per 96 frames). The 3060 has no VP9/AV1 encoder, so WebM is CPU-only (opt in). Remotion still decodes source clips on the CPU. Measure CPU per cgroup (`systemd-run --user --scope`), not system-wide: another job on the machine skews `/proc/stat`. `--chromium-flags` wants JSON and failed both ways; not needed.
+- **Typing Arabic with Latin words (2026-11-18, alfa-hero v7):** never split a Latin word (a brand name) across two spans while it's being typed, e.g. to colour the newest letters. Each span is its own LTR island inside the RTL line, and the islands swap places: «VOLT» half-typed showed as «OLTV». Keep each Latin run in one span (`unicode-bidi: isolate`); splitting Arabic runs across spans is fine (the letters still join in Chrome). See `alfa-hero/build/remotion/src/PromptBox.tsx` (`Typed`).
+
+## Web files for a hero (alfa-hero, Nov 2026)
+- `tools/web_hero.sh <silent master>` makes the site files on the GPU: H.264 NVENC with `-multipass fullres -spatial-aq 1 -temporal-aq 1` at a 3 Mbps VBR target is 6.8 MB for 18 s of heavy generated footage at SSIM 0.986 (no visible difference in crops). Constant quality (`-cq 24`) came out at 12 MB, so cap the bitrate instead.
+- Make the poster from frame 0, not a later frame, so the poster-to-video swap doesn't jump. Strip the audio (`-an`) on the site files.
+- **WebM can't be made on this machine's GPUs** (checked 2026-11-18): the RTX 3060 (Ampere) NVENC encodes only H.264/HEVC (no NVIDIA card encodes VP9; AV1 encode starts with RTX 40). The Intel Tiger Lake-H GT1 iGPU, even with RPM Fusion's full `intel-media-driver`, exposes H.264/HEVC (incl. low-power VDEnc) but no VP9 or AV1 encode entrypoint. WebM here means a CPU encode (libvpx-vp9 / SVT-AV1), or a machine with an RTX 40 / Intel Arc GPU (AV1 in WebM).

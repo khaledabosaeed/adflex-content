@@ -48,6 +48,23 @@ Launches close to what AdFlex does:
 - [Ditto — swap yourself into any viral video](https://whatships.com/videos/ditto-melius/) (a Genjutsu-like swap)
 - [Makina — YouTube ideation inside Claude](https://whatships.com/videos/makina-claude/) and [Runway Dev — now on Claude Code](https://whatships.com/videos/runway-dev-claude-code/) (tools that live inside Claude, like our MCP story)
 
+## Competitor AI marketing agents
+Watched frame by frame on 2026-11-17 for [alfa-hero](../../videos/hero/alfa-hero/brief.md). What they share (prompt → agent steps → output grid, gradient voids, mascots, "Yes" clicks) is what ALFA's films avoid; none has a business owner as the hero, a real place, results after posting, or Arabic.
+
+| Product | Link | What it does on screen | Take / avoid |
+|---|---|---|---|
+| Pomelli Agent, Google Labs (60 s, May 2026) | https://x.com/PomelliByGoogle/status/2056797533792530801 · mp4 https://video.twimg.com/amplify_video/2056795851952173056/vid/avc1/1280x720/Kpa6jdxfxwJKdZuV.mp4 | UI on a green-gold gradient: brand files → voice prompt → "Business DNA" card → Brand Book → website with a Publish toggle | Owns "learns your brand": never show memory as a DNA card |
+| Pomelli v1 (2:35, Oct 2025) | https://youtube.com/watch?v=l2rquNXRUWQ | PM to camera, then URL → Business DNA → campaigns for "Zac's Sweet Shop" | A walkthrough, not a film |
+| Icon "AI Admaker" (89 s, Feb 2025) | https://youtube.com/watch?v=_dZoscOdDkg | "Can you tell which ad is AI?" shock opener, founder, AdGPT chat, wall of variations | Avoid: real brands and comment-bait CTA |
+| Okara AI CMO (53 s, Mar 2026, 14.1M views) | https://x.com/askOkara/status/2033562024651968657 · mp4 https://video.twimg.com/amplify_video/2033550506703138816/vid/avc1/1188x720/lAg7wXGGro5_8ApS.mp4 | Raw recording: URL → terminal log of agents → competitor dive, SEO scores, Reddit reply drafts | Proof that a raw real recording can go viral |
+| Jasper Agents (94 s, Jun 2025) | https://youtube.com/watch?v=5ujTEr3w_CY | Pain checklist → role-labelled cursors → ticked steps → canvas of ads and translations | Avoid the ticked step list |
+| Jasper "Marketing, Reimagined" (73 s) | https://youtube.com/watch?v=4GO82RerfcY | Old-tool chaos (Slack/Figma complaints) → logo → "Yes, finally!" | Pain-first opener |
+| Dreamina Marketing Studio (79 s, Nov 2026) | https://x.com/dreamina_ai/status/2119792604091183378 · mp4 https://video.twimg.com/amplify_video/2119690022719049729/vid/avc1/1280x720/LEzOvgIQlJzQX1DB.mp4 | Live-action poster panic → feature chapters → output collage → the poster printed | The only output that lands in the physical world (briefly) |
+| AdaL v2 (57 s, Nov 2026) | https://video.twimg.com/amplify_video/2120553628289449988/vid/avc1/1280x720/gs7iWkJ2NR4hpNcs.mp4 | Anime mascot "Importing…/Editing…", version branch graph, view counters | Avoid mascots and vanity counters |
+| Canva AI (keynote, Create 2025) | https://youtube.com/watch?v=85f-fwJzUKM | Presenters + UI | Keynote, not a film |
+
+No launch film found (unverified): Creatify AdMax, Arcads, Holo, Blaze, Predis, Ocoya, HubSpot Breeze, Meta Advantage+, Vidu Claw, Manus, Genspark.
+
 ## References
 | Reference | Link | Used in | What we took |
 |---|---|---|---|

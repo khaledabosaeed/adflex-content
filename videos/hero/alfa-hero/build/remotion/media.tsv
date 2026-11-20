@@ -1,0 +1,37 @@
+# Media this build needs but git ignores (clips, music, SFX). Fetch with: bash tools/fetch_media.sh <this file>
+# path (relative to this folder)	url	sha256   (get the hash with: sha256sum public/<file>)
+public/alfa.mp4	https://cdn-dev.adflex.ai/uploaded-images/6acb3fb640ba55f116584c78/69eca7882576b44126acaece/6afb44cc539c3a84eb10febf.mp4	96579ad918f4a767d499dfddba2f26646c80a8667f08923e81a4d0688fe21023
+public/alfa-plan.mp4	https://cdn-dev.adflex.ai/uploaded-images/6acb3fb640ba55f116584c78/69eca7882576b44126acaece/6afc7badd6d610203f2ffde7.mp4	c1eb1eadfe0aeddb616d6804ed29bcaa528545244271b687bfa893dbc107f33e
+public/alfa-edit.mp4	https://cdn-dev.adflex.ai/uploaded-images/6acb3fb640ba55f116584c78/69eca7882576b44126acaece/6afc8dbfd6d610203f304abb.mp4	8a963af2a6e96a6ae07693b8be2c47e8a883233209e47192a83738fe7028b146
+public/desk-c1.mp4	https://cdn-dev.adflex.ai/ai-video/6acb3fb640ba55f116584c78/generated-videos/d9ca0426-67b0-43ef-a73a-d2972fce2711.mp4	337dcd5a4d373f4076868a5e365cd5c90e99b8625b4b5da160fc8cab3517ee46
+public/volt.mp4	https://cdn-dev.adflex.ai/ai-video/6acb3fb640ba55f116584c78/generated-videos/957a8e5a-3931-4dd2-b95f-81b806625682.mp4	26b7e4ea8ee09655b18e6c183150e714cd1b11c8b71524b73ac8f3c21d16a6ce
+public/knockout.mp4	https://cdn-dev.adflex.ai/ai-video/6acb3fb640ba55f116584c78/generated-videos/66b631b8-38d5-400c-8223-d9df8c24f8c9.mp4	1674e23a72c78fb1a56ed89e5a39ed8e291e573522ac179cfd65d18d4c3c8920
+public/dune.mp4	https://cdn-dev.adflex.ai/ai-video/6acb3fb640ba55f116584c78/generated-videos/a1417e09-4f5e-4439-a4e9-05a0fd079022.mp4	74f7de6fb83c6e7f26f92ac0d9d17b7d1cf75a26a19bce31a3d4bf1e9cdac735
+public/screen.mp4	https://cdn-dev.adflex.ai/ai-video/6acb3fb640ba55f116584c78/generated-videos/9d68077a-a89f-499a-acba-4e64a5bfebb8.mp4	5303881d3f2f230f40863734d74229d423cb20ee6fc5149cdfcdaa993f48c094
+public/typing.mp4	https://cdn-dev.adflex.ai/ai-video/6acb3fb640ba55f116584c78/generated-videos/f8b2c9de-a7f6-47ad-94a8-4029abac8f4d.mp4	cc8c0df05d624fc3f1e8140a96b46e7c327d2309ba36f3c226a6a5dae17a4885
+public/world-volt.mp4	https://cdn-dev.adflex.ai/ai-video/6acb3fb640ba55f116584c78/generated-videos/13861597-0672-426a-9596-9be9485ca4e1.mp4	f27b79632093a3cc6fddab8fcb225a1ad0ab0ea2ad95d3bfb362d33acb730b58
+public/world-knockout.mp4	https://cdn-dev.adflex.ai/ai-video/6acb3fb640ba55f116584c78/generated-videos/7a37257b-cdc5-4625-b0e6-a79bbfd83816.mp4	e1ba34a8067cc03ab8ab5df0d8738831648a486e50b4cd8a34f2bcaa1ad9ce51
+public/world-dune.mp4	https://cdn-dev.adflex.ai/ai-video/6acb3fb640ba55f116584c78/generated-videos/c5bfe452-7871-4631-97ef-b5671fde1cfe.mp4	a737958f6cc3973492ea4156b68d58b43180a14bbc1a83f12cd6463bd6ee82ec
+public/act-volt.mp4	https://cdn-dev.adflex.ai/ai-video/6acb3fb640ba55f116584c78/generated-videos/3e982e24-2d19-4e2a-81e2-bafb1a18bd3b.mp4	d7d92433ffc90c975125387e5f296457f41335f7ef72173f1b074987a95f5f99
+public/act-knockout.mp4	https://cdn-dev.adflex.ai/ai-video/6acb3fb640ba55f116584c78/generated-videos/38d8f0ec-f93a-49a3-8fda-e5058bd6e0dc.mp4	b303b64dbff83d734e12f181cfce9cda06d54354030cf948b5d962bf8a0f76a1
+public/act-dune.mp4	https://cdn-dev.adflex.ai/ai-video/6acb3fb640ba55f116584c78/generated-videos/8e03e0a1-0a64-48a0-8b30-0096ca58e4dd.mp4	487319873856a960e0f46ca30251b2711206141d266bdb3875091cb6932cecf3
+public/t1-volt-ko.mp4	https://cdn-dev.adflex.ai/ai-video/6acb3fb640ba55f116584c78/generated-videos/495d3653-45ab-4b9f-b569-549aa2ce23a0.mp4	54f7d3daf9ffe21bd776c247dbf653d443e9b183ac346b09dbe0134d4abf4a3c
+public/t2-ko-dune.mp4	https://cdn-dev.adflex.ai/ai-video/6acb3fb640ba55f116584c78/generated-videos/6077a33d-1838-4dec-bd05-e0cfca545252.mp4	5767602b62d3513a66f257bfc91aff034927d1d2ae4cafac4b97524a2b35027e
+public/t3-dune-desk.mp4	https://cdn-dev.adflex.ai/ai-video/6acb3fb640ba55f116584c78/generated-videos/78236f23-dee3-4517-804c-a47164543a73.mp4	600961ca69310b5c452a58893c5533751ea40ed738e8a86bd7592b397b297c6b
+public/t4-desk-volt.mp4	https://cdn-dev.adflex.ai/ai-video/6acb3fb640ba55f116584c78/generated-videos/cfd58762-76f2-44da-a789-bc5b2d4efb39.mp4	d3dc8f1643f4cdba76ae8a3ffae0573a2518021796b4e259e4c7b3d92484953c
+public/b1-bored.mp4	https://cdn-dev.adflex.ai/ai-video/6acb3fb640ba55f116584c78/generated-videos/7bf03604-3551-472f-89a3-0481fedcf4cf.mp4	a296fcc1569521a15c44b33d50d6b3840a58f9ef544acbe8f71f0d80762df289
+public/t5-into-screen.mp4	https://cdn-dev.adflex.ai/ai-video/6acb3fb640ba55f116584c78/generated-videos/5e993aa6-8959-4d4f-b110-ad3c37d96060.mp4	58657e458a403d731bc6c703cd520c2b5e6c839ca68e1258f8210a5aed59cc3c
+public/audio/trip-music.mp3	https://cdn-dev.adflex.ai/ai-music/6acb3fb640ba55f116584c78/generated-audio/fc374f3e-05e0-4b07-92d7-970274a55f57.mp3	7f424019a733d5d036a7ac22c6d09b20bcacef02041284806d7a8242b6b108bf
+public/audio/whoosh.mp3	https://cdn-dev.adflex.ai/ai-sound-effects/6acb3fb640ba55f116584c78/generated-audio/f182f328-25ec-4215-a87a-a33131ae145b.mp3	16e68cc31469f35f22f9d62d3b98cf86823a1bfb4a48f41d5db3e5761da7aef2
+public/audio/riser.mp3	https://cdn-dev.adflex.ai/ai-sound-effects/6acb3fb640ba55f116584c78/generated-audio/30d42380-b8de-49c6-bf0d-e412bfee4ee1.mp3	1d363606c4c08d0a68221c8638ec539b89e1fd404180614948f4039e63d3b363
+public/audio/impact.mp3	https://cdn-dev.adflex.ai/ai-sound-effects/6acb3fb640ba55f116584c78/generated-audio/8bb1643d-a73a-42c2-a695-465eac3b440d.mp3	08a6864beb3c3e7afeebea065da0f41e8afa8cffe7ad0b708436116a2c54bebe
+public/audio/gen-slam.mp3	https://cdn-dev.adflex.ai/ai-sound-effects/6acb3fb640ba55f116584c78/generated-audio/02d1e5b0-816d-49ed-95c7-22d9287d8cc2.mp3	2ef3ced0e6c4f78429ef817fbdfe5f3f3a59655105944cf6dff0ff21a80fc03c
+public/audio/gen-glitch.mp3	https://cdn-dev.adflex.ai/ai-sound-effects/6acb3fb640ba55f116584c78/generated-audio/77dbc475-1a3c-4ba1-a86e-090613f52faf.mp3	d9774a8193ac340fcdacf66d3c6fdd71df78ff801fe3d6badbf13658d74e439f
+public/audio/gen-whoosh.mp3	https://cdn-dev.adflex.ai/ai-sound-effects/6acb3fb640ba55f116584c78/generated-audio/c11c3e71-aadb-48c4-9742-1bd820d85871.mp3	e78a00af453a87143b6a70fe6773564bd9a098c4a3b046cf31d78f22d05a4f38
+public/audio/gen-boom.mp3	https://cdn-dev.adflex.ai/ai-sound-effects/6acb3fb640ba55f116584c78/generated-audio/43fd4db2-6f95-4fe5-b4b6-9f949f2b01c8.mp3	51700c98bc7240e6d4fe55894c9cdbf44a1c84b48e2fca02287fdd83d46378fe
+public/audio/gen-sparkle.mp3	https://cdn-dev.adflex.ai/ai-sound-effects/6acb3fb640ba55f116584c78/generated-audio/10cfa074-979b-462d-a69f-9c5325afd1c2.mp3	77637e6c68ae9241cc21362ba85cef2cfc6607fed6ba0e73b9d32f07bf16bbb1
+public/audio/gen-pop.mp3	https://cdn-dev.adflex.ai/ai-sound-effects/6acb3fb640ba55f116584c78/generated-audio/1732c637-9894-4fca-bd2e-62ba8c5d97c1.mp3	a81ccaafb95c26a813468e9d588a0e16bc66f1c132ca75f6d7ce8463b47b9b66
+public/audio/gen-stop.mp3	https://cdn-dev.adflex.ai/ai-sound-effects/6acb3fb640ba55f116584c78/generated-audio/7a8e9f4f-fca3-4b10-880a-2316ce3f031d.mp3	bfb27309a109ff7e2118511c687b9b3dd750ded6496577b511e750c8a36fed59
+public/audio/gen-sting.mp3	https://cdn-dev.adflex.ai/ai-sound-effects/6acb3fb640ba55f116584c78/generated-audio/dd4e39ef-9f32-467a-97ca-bdb85eea6a69.mp3	2b813c5f5ce4a0e7cc8cabfbeda846f1b32fffca48fdabf6de09501a8b43885c
+public/audio/gen-music-hit.mp3	https://cdn-dev.adflex.ai/ai-music/6acb3fb640ba55f116584c78/generated-audio/c621b94a-6780-418d-a4b8-5c5369d3d7fa.mp3	01c398e294ce84bbc19ebb6d06188698743cf4f51057ad9c21134a4987457474
+public/audio/gen-music-20.mp3	https://cdn-dev.adflex.ai/ai-music/6acb3fb640ba55f116584c78/generated-audio/03732a67-b433-4b48-b960-6939a248a554.mp3	14a6179d605e93a3ad966ff96e78e45a086c5aecd4d503ac327c2cde4be8694e

@@ -53,6 +53,7 @@ Status as of 2026-11-15.
 | [diner-hero](videos/hero/diner-hero/brief.md) | "Al's Diner" hero | 16:9 + social | Superseded by Bloom |
 | [genjutsu-promo](videos/hero/genjutsu-promo/brief.md) | Genjutsu swap tool promo | 20 s, 16:9 | Final |
 | [workflow-hero](videos/hero/workflow-hero/brief.md) | "Workflow × ALFA" hero: one sentence to ALFA builds and runs a real workflow | 21.8 s, 16:9, loop with music + SFX | v18 (final quality: ProRes master, new music + SFX, upscaled story) rendered, awaiting review |
+| [alfa-hero](videos/hero/alfa-hero/brief.md) | "The bored trip": bored at her desk, Leen asks ALFA to take her somewhere wild and tours the rooftops, a boxing ring and the desert, prompting her way out of each jam until ALFA takes her home | 16 s, 16:9, silent loop | v20 cut with music, SFX on every transition + end card, v18 silent for the site (script v15: no brands, she goes into her screen, Leen carries every transition) |
 
 **Nothing has been published.** Some posts exist as drafts only.
 

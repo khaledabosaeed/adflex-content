@@ -47,6 +47,7 @@ The code that applies these rules is `tools/talking-head-reel/remotion/src/motio
 | Style | Type | Fits | Source | Used in |
 |---|---|---|---|---|
 | [Glitch-split title + whip-blur cards](glitch-split-whip.md) | graphics | hero, ad, social | Higgsfield Genjutsu launch promo | workflow-hero |
+| [ALFA brand type: drop-in wordmark, gradient-box captions, campaign timer](alfa-brand-type.md) | graphics | hero, ad, social | Our ORRA watch ALFA hero (Python source in `tools/alfa-motion-source/`) | |
 | [3D icon pops in a safe box](3d-icon-pops.md) | graphics | social, ad | Claude talking-head reel (Nov 2026) | Claude talking-head reel (outside the repo) |
 | [Word-synced Arabic pop captions](word-synced-captions.md) | graphics | social, ad | Claude talking-head reel (Nov 2026) | Claude talking-head reel (outside the repo) |
 | [Talking-head punch edit](talking-head-punch.md) | edit | social, ad | Claude talking-head reel (Nov 2026) | Claude talking-head reel (outside the repo) |

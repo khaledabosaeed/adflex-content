@@ -28,8 +28,9 @@ Copy a mark into a Remotion project's `public/` (the `templates/remotion-video` 
 | Dark text | #1C1824 / #333 |
 
 ## Fonts
-Font files (all SIL OFL) are in [fonts/](fonts/): `Archivo-var.ttf` (variable, wght 100–900 × wdth 62–125, from google/fonts `ofl/archivo`), `ArchivoBlack-Regular.ttf`, `Cairo-var.ttf` (wght 200–1000).
+Font files (all SIL OFL) are in [fonts/](fonts/): `Archivo-var.ttf` (variable, wght 100–900 × wdth 62–125, from google/fonts `ofl/archivo`), `ArchivoBlack-Regular.ttf`, `Cairo-var.ttf` (wght 200–1000), `Unbounded-900.ttf` and `Outfit-500/600/700/800.ttf` (the ALFA brand type).
 - **Latin labels and titles in motion graphics:** Archivo variable. Condensed labels at wdth 68–72 (light 300 over bold 860); wide titles at wght 900 / wdth 125.
+- **ALFA wordmark and ALFA captions:** Unbounded Black for the ALFA wordmark (logo gradient + gloss), Outfit 600–800 for captions, chips and UI text. Recipe: `motion-styles/alfa-brand-type.md`.
 - **Arabic:** Cairo (ExtraBold for captions, Black for titles) from npm `@fontsource/cairo`, or IBM Plex Sans Arabic for ALFA UI. The Arabic subsets have no ASCII digits, so set numbers in the Latin font.
 - **Latin display:** Archivo Black, Unbounded Black, Anton, Playfair (used on the الحجة signature).
 

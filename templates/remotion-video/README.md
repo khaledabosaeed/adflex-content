@@ -25,6 +25,7 @@ Set `COMP=<id>` if you renamed the composition. Run `remotion still` frames one 
 
 ## Files
 - `src/lib.tsx`: fonts, brand colours `C`, easings (`ip`, `springAt`), `Background`, `Grain`, `UIWindow` (3D window with lift-outs), `Crop`, `Clip`, `MBlur`, `whipIn`/`whipOut`, `Wipe`, `Label`, `Kicker`, `ScanLine`.
+- `src/alfaType.tsx`: the ALFA brand type (`BrandBg`, `AlfaTitle`, `AlfaWord`, `BoxCaption`, `TimerChip`, `Toast`, `Glitch`), times in seconds. Preview it in the `AlfaTypeDemo` composition; recipe in `motion-styles/alfa-brand-type.md`.
 - `src/Video.tsx`: a two-scene starter timeline; replace it with the shot list.
 - `src/Sound.tsx`: music re-cut on bar lines plus SFX cues on absolute frames.
 

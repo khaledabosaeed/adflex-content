@@ -14,7 +14,7 @@ A website hero autoplays **muted**, **loops**, and sits next to the page's own h
 ## 2. Structure
 | Part | When | Rule |
 |---|---|---|
-| Name | 0–1 s | The product or feature name is on screen within the first second. All six references do it by 0.6 s. |
+| Name | 0–1 s | The product or feature name is on screen within the first second. All six references do it by 0.6 s. **It fills the screen:** big and centred (45–80 % of the frame width), a small brand lockup above it, sometimes a small-caps line under it, held 1.5–2.6 s, then it turns into the UI or the footage (Fable MCP, Talent Contest, Seedream, Genjutsu, Ad Multiplier, Supercomputer; checked 2026-11-18). Don't open on a small corner label (alfa-hero v2 feedback). |
 | Beats | after the name | 3–5 beats, **one idea per beat**, 1.5–3 s each. Higgsfield shows a new feature or step every 2.5–3 s. |
 | The bold moment | around the middle (40–55 %) | Exactly one big move (a dive, a flip, a shockwave). Talent Contest dives at 43 %, Short Drama flips at 44 %, Seedream swaps the jacket at 49 %, Fable MCP fires the rings at 52 %. |
 | Result | the last 3–5 s | The real output, given the most screen time. Every reference ends on its result: the episode playing, the game footage, the finished cover on the tablet, the product macro. |
